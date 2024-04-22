@@ -3461,48 +3461,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _boneData:
   - boneName: Leg_Lengith-thigh.R
-    smallMaskBonesScale: {x: 0, y: 0, z: 0}
-    mediumMaskBonesScale: {x: 0, y: 0, z: 0}
-    largeMaskBonesScale: {x: 0, y: 0, z: 0}
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: -0.0005, y: 0.0205, z: 0.002}
     largeMaskBonesPosition: {x: -0.001, y: 0.041, z: 0.004}
     boneInfoList:
-    - scaleEnabled: 0
+    - scaleEnabled: 1
       positionEnabled: 1
   - boneName: Leg_Lengith-shin.R
-    smallMaskBonesScale: {x: 0, y: 0, z: 0}
-    mediumMaskBonesScale: {x: 0, y: 0, z: 0}
-    largeMaskBonesScale: {x: 0, y: 0, z: 0}
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: -0.001, y: 0.03, z: -0.006}
     largeMaskBonesPosition: {x: -0.003, y: 0.118, z: -0.023}
     boneInfoList:
-    - scaleEnabled: 0
+    - scaleEnabled: 1
       positionEnabled: 1
   - boneName: Leg_Lengith-foot.R
-    smallMaskBonesScale: {x: 0, y: 0, z: 0}
-    mediumMaskBonesScale: {x: 0, y: 0, z: 0}
-    largeMaskBonesScale: {x: 0, y: 0, z: 0}
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0, y: 0.015, z: 0.027}
     largeMaskBonesPosition: {x: 0, y: 0.059, z: 0.105}
     boneInfoList:
-    - scaleEnabled: 0
+    - scaleEnabled: 1
       positionEnabled: 1
   - boneName: Leg_Lengith-toe.R
-    smallMaskBonesScale: {x: 0, y: 0, z: 0}
-    mediumMaskBonesScale: {x: 0, y: 0, z: 0}
-    largeMaskBonesScale: {x: 0, y: 0, z: 0}
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0, y: 0, z: -0.031}
     largeMaskBonesPosition: {x: 0, y: 0.001, z: -0.121}
     boneInfoList:
-    - scaleEnabled: 0
+    - scaleEnabled: 1
       positionEnabled: 1
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 197174093}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &199575045
 GameObject:
   m_ObjectHideFlags: 0
@@ -4057,7 +4059,6 @@ GameObject:
   m_Component:
   - component: {fileID: 221751923}
   - component: {fileID: 221751925}
-  - component: {fileID: 221751924}
   m_Layer: 5
   m_Name: FullArm-WidthSlider
   m_TagString: Untagged
@@ -4087,22 +4088,6 @@ RectTransform:
   m_AnchoredPosition: {x: -1.3669434, y: -105.43567}
   m_SizeDelta: {x: 239.71759, y: 39.22821}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &221751924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221751922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _boneData: []
-  isSmallSize: 1
-  isMediumSize: 0
-  sizeSlider: {fileID: 221751925}
 --- !u!114 &221751925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4737,6 +4722,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1522157207}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &234722167
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,6 +4826,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 244914001}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &244914001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5017,90 +5006,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: FUL_Full-forearm_01.L
-    smallMaskBonesScale: {x: 0, y: 0, z: 0}
-    mediumMaskBonesScale: {x: 0, y: 0, z: 0}
-    largeMaskBonesScale: {x: 0, y: 0, z: 0}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Full-forearm_01.R
-    smallMaskBonesScale: {x: 0, y: 0, z: 0}
-    mediumMaskBonesScale: {x: 0, y: 0, z: 0}
-    largeMaskBonesScale: {x: 0, y: 0, z: 0}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Full-forearm_02.L
-    smallMaskBonesScale: {x: 0, y: 0, z: 0}
-    mediumMaskBonesScale: {x: 0, y: 0, z: 0}
-    largeMaskBonesScale: {x: 0, y: 0, z: 0}
-    smallMaskBonesPosition: {x: 0, y: 0.1322043, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.159, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.212, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Full-forearm_02.R
-    smallMaskBonesScale: {x: 0, y: 0, z: 0}
-    mediumMaskBonesScale: {x: 0, y: 0, z: 0}
-    largeMaskBonesScale: {x: 0, y: 0, z: 0}
-    smallMaskBonesPosition: {x: 0, y: 0.1322043, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.159, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.212, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Hand_L_.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 0.8, z: 1}
-    largeMaskBonesScale: {x: 1, y: 0.6, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: Hand_L_.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 0.8, z: 1}
-    largeMaskBonesScale: {x: 1, y: 0.6, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-hand.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1.25, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1.33, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-hand.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1.25, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1.33, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 248576190}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &248576190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7574,6 +7485,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 370726049}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &370726049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8184,7 +8097,7 @@ MonoBehaviour:
     largeMaskBonesPosition: {x: 0, y: 0, z: 0}
     boneInfoList:
     - scaleEnabled: 1
-      positionEnabled: 1
+      positionEnabled: 0
   - boneName: FuL_Hips.L
     smallMaskBonesScale: {x: 1, y: 1, z: 1}
     mediumMaskBonesScale: {x: 1.2, y: 1, z: 1}
@@ -8194,20 +8107,12 @@ MonoBehaviour:
     largeMaskBonesPosition: {x: 0, y: 0, z: 0}
     boneInfoList:
     - scaleEnabled: 1
-      positionEnabled: 1
-  - boneName: Full_ThighSize.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
+      positionEnabled: 0
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 578609586}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &410871681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8828,7 +8733,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434660879}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
@@ -8856,8 +8761,8 @@ MonoBehaviour:
       positionEnabled: 0
   - boneName: FUL_Full-hand.L
     smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1.23, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1.33, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1.2, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1.2, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
     largeMaskBonesPosition: {x: 0, y: 0, z: 0}
@@ -8866,8 +8771,8 @@ MonoBehaviour:
       positionEnabled: 0
   - boneName: FUL_Full-hand.R
     smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1.23, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1.33, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1.2, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1.2, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
     largeMaskBonesPosition: {x: 0, y: 0, z: 0}
@@ -8877,6 +8782,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 434660882}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &437928318
 GameObject:
   m_ObjectHideFlags: 0
@@ -10002,21 +9909,6 @@ MonoBehaviour:
   prefabToInstantiate: {fileID: 3881537956879700110, guid: 6d95d5e24b7569c41bd89df53b37c4cf,
     type: 3}
   characterAnimator: {fileID: 919132148858894911}
-  onClothesInstantiated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &459189232
 Transform:
   m_ObjectHideFlags: 0
@@ -11548,30 +11440,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: FUL_Medial_EpicondyLe.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.2, y: 1.2, z: 1.2}
-    largeMaskBonesScale: {x: 1.4, y: 1.4, z: 1.4}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Medial_EpicondyLe.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.2, y: 1.2, z: 1.2}
-    largeMaskBonesScale: {x: 1.4, y: 1.4, z: 1.4}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1672513853}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &519917397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12049,6 +11923,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 682841577}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &525032510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12373,6 +12249,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 535415902}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &535415902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14372,30 +14250,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: Sc_X_FuL_Bust
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1.1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 0
-  - boneName: FuL_UpperBust
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1.5, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 902233158}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &633591383
 GameObject:
   m_ObjectHideFlags: 0
@@ -14647,30 +14507,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: FUL_Full-hand.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.1, z: 1.08}
-    largeMaskBonesScale: {x: 1.3, y: 1.2, z: 1.16}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-hand.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.5, y: 1.1, z: 1.08}
-    largeMaskBonesScale: {x: 1.3, y: 1.2, z: 1.16}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 638327430}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &640459640
 GameObject:
   m_ObjectHideFlags: 0
@@ -15722,6 +15564,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1143380056}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &691582228
 GameObject:
   m_ObjectHideFlags: 0
@@ -15795,7 +15639,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691582228}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
@@ -15804,6 +15648,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1398113403}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &691582232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16402,6 +16248,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 782900356}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &714107828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17009,21 +16857,6 @@ MonoBehaviour:
   prefabToInstantiate: {fileID: 6174734291100046303, guid: b3a0e7008254c4e40917cfbc6cc74817,
     type: 3}
   characterAnimator: {fileID: 919132148858894911}
-  onClothesInstantiated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &739402656
 Transform:
   m_ObjectHideFlags: 0
@@ -17147,20 +16980,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: FuL_UnderBust
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1.2, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1139658969}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &753697779
 GameObject:
   m_ObjectHideFlags: 0
@@ -19179,50 +19004,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: FUL_Full-forearm_01.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_01.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_02.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_02.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 280354883}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &848177465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20801,30 +20588,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: FuL_Hips.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.2, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1.4, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FuL_Hips.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.2, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1.4, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1686566930}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &908535977
 GameObject:
   m_ObjectHideFlags: 0
@@ -21760,6 +21529,106 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boneData:
+  - boneName: FUL_Full-forearm_01.L
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
+    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
+    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
+    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
+    boneInfoList:
+    - scaleEnabled: 1
+      positionEnabled: 1
+  - boneName: FUL_Full-forearm_01.R
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
+    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
+    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
+    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
+    boneInfoList:
+    - scaleEnabled: 1
+      positionEnabled: 1
+  - boneName: FUL_Full-forearm_02.L
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
+    smallMaskBonesPosition: {x: 0, y: 0.1322043, z: 0}
+    mediumMaskBonesPosition: {x: 0, y: 0.159, z: 0}
+    largeMaskBonesPosition: {x: 0, y: 0.212, z: 0}
+    boneInfoList:
+    - scaleEnabled: 1
+      positionEnabled: 1
+  - boneName: FUL_Full-forearm_02.R
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
+    smallMaskBonesPosition: {x: 0, y: 0.1322043, z: 0}
+    mediumMaskBonesPosition: {x: 0, y: 0.159, z: 0}
+    largeMaskBonesPosition: {x: 0, y: 0.212, z: 0}
+    boneInfoList:
+    - scaleEnabled: 1
+      positionEnabled: 1
+  - boneName: FUL_Medial_EpicondyLe.L
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
+    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
+    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
+    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
+    boneInfoList:
+    - scaleEnabled: 1
+      positionEnabled: 1
+  - boneName: FUL_Medial_EpicondyLe.R
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
+    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
+    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
+    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
+    boneInfoList:
+    - scaleEnabled: 1
+      positionEnabled: 1
+  - boneName: Ful_upper_arm.L
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
+    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
+    mediumMaskBonesPosition: {x: 0, y: 0.025, z: 0}
+    largeMaskBonesPosition: {x: 0, y: 0.035, z: 0}
+    boneInfoList:
+    - scaleEnabled: 1
+      positionEnabled: 1
+  - boneName: Ful_upper_arm.R
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
+    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
+    mediumMaskBonesPosition: {x: 0, y: 0.025, z: 0}
+    largeMaskBonesPosition: {x: 0, y: 0.035, z: 0}
+    boneInfoList:
+    - scaleEnabled: 1
+      positionEnabled: 1
+  - boneName: Full_upper_Arm_01.L
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
+    smallMaskBonesPosition: {x: 0, y: 0.1163525, z: 0}
+    mediumMaskBonesPosition: {x: 0, y: 0.142, z: 0}
+    largeMaskBonesPosition: {x: 0, y: 0.193, z: 0}
+    boneInfoList:
+    - scaleEnabled: 1
+      positionEnabled: 1
+  - boneName: Full_upper_Arm_01.R
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
+    smallMaskBonesPosition: {x: 0, y: 0.1163525, z: 0}
+    mediumMaskBonesPosition: {x: 0, y: 0.142, z: 0}
+    largeMaskBonesPosition: {x: 0, y: 0.193, z: 0}
+    boneInfoList:
+    - scaleEnabled: 1
+      positionEnabled: 1
   - boneName: Hand_L_.L
     smallMaskBonesScale: {x: 1, y: 1, z: 1}
     mediumMaskBonesScale: {x: 1, y: 0.8, z: 1}
@@ -21782,8 +21651,8 @@ MonoBehaviour:
       positionEnabled: 0
   - boneName: FUL_Full-hand.L
     smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1.23, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1.33, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1.2, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1.2, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
     largeMaskBonesPosition: {x: 0, y: 0, z: 0}
@@ -21792,117 +21661,19 @@ MonoBehaviour:
       positionEnabled: 0
   - boneName: FUL_Full-hand.R
     smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1.23, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1.33, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1.2, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1.2, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
     largeMaskBonesPosition: {x: 0, y: 0, z: 0}
     boneInfoList:
     - scaleEnabled: 1
       positionEnabled: 0
-  - boneName: FUL_Full-forearm_01.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Full-forearm_01.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Full-forearm_02.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0.1322043, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.159, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.212, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Full-forearm_02.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0.1322043, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.159, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.212, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Medial_EpicondyLe.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Medial_EpicondyLe.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Ful_upper_arm.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.025, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.035, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Ful_upper_arm.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.025, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.035, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Full_upper_Arm_01.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0.1163525, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.142, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.193, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Full_upper_Arm_01.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0.1163525, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.142, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.193, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 958710831}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &958710831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22076,7 +21847,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975144286}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
@@ -22085,6 +21856,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 975144289}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &975144289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22188,170 +21961,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: Hand_L_.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 0.8, z: 1}
-    largeMaskBonesScale: {x: 1, y: 0.6, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: Hand_L_.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 0.8, z: 1}
-    largeMaskBonesScale: {x: 1, y: 0.6, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-hand.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1.23, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1.33, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-hand.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1.23, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1.33, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_01.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Full-forearm_01.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Full-forearm_02.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0.1322043, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.159, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.212, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Full-forearm_02.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0.1322043, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.159, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.212, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Medial_EpicondyLe.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Medial_EpicondyLe.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Ful_upper_arm.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.025, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.035, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Ful_upper_arm.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.025, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.035, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Full_upper_Arm_01.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0.1163525, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.142, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.193, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Full_upper_Arm_01.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0.1163525, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.142, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.193, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Full_Shoulder.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: -0.008, y: 0.012, z: 0}
-    largeMaskBonesPosition: {x: -0.015, y: 0.027, z: 0.002}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Full_Shoulder.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0.008, y: 0.012, z: 0}
-    largeMaskBonesPosition: {x: -0.015, y: 0.027, z: 0.002}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 979472127}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &979472127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23094,8 +22709,8 @@ MonoBehaviour:
     mediumMaskBonesScale: {x: 1.15, y: 1, z: 1.15}
     largeMaskBonesScale: {x: 1.25, y: 1, z: 1.25}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
+    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
+    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
     boneInfoList:
     - scaleEnabled: 1
       positionEnabled: 0
@@ -23139,49 +22754,51 @@ MonoBehaviour:
     boneInfoList:
     - scaleEnabled: 1
       positionEnabled: 0
-  - boneName: Full_Shoulder.R
+  - boneName: Hand_L_.L
     smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1, z: 1.25}
+    mediumMaskBonesScale: {x: 1, y: 0.8, z: 1}
+    largeMaskBonesScale: {x: 1, y: 0.6, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
     largeMaskBonesPosition: {x: 0, y: 0, z: 0}
     boneInfoList:
-    - scaleEnabled: 1
+    - scaleEnabled: 0
       positionEnabled: 0
-  - boneName: Full_Shoulder.L
+  - boneName: Hand_L_.R
     smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1, z: 1.25}
+    mediumMaskBonesScale: {x: 1, y: 0.8, z: 1}
+    largeMaskBonesScale: {x: 1, y: 0.6, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
     largeMaskBonesPosition: {x: 0, y: 0, z: 0}
     boneInfoList:
-    - scaleEnabled: 1
+    - scaleEnabled: 0
       positionEnabled: 0
   - boneName: FUL_Full-hand.R
     smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.1, z: 1.08}
+    mediumMaskBonesScale: {x: 1.15, y: 1.2, z: 1.08}
     largeMaskBonesScale: {x: 1.3, y: 1.2, z: 1.16}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
     largeMaskBonesPosition: {x: 0, y: 0, z: 0}
     boneInfoList:
-    - scaleEnabled: 1
+    - scaleEnabled: 0
       positionEnabled: 0
-  - boneName: FUL_Full-hand.L
+  - boneName: FUL_Full-hand.R
     smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.1, z: 1.08}
+    mediumMaskBonesScale: {x: 1.15, y: 1.2, z: 1.08}
     largeMaskBonesScale: {x: 1.3, y: 1.2, z: 1.16}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
     largeMaskBonesPosition: {x: 0, y: 0, z: 0}
     boneInfoList:
-    - scaleEnabled: 1
+    - scaleEnabled: 0
       positionEnabled: 0
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1011145043}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &1013095067
 GameObject:
   m_ObjectHideFlags: 0
@@ -24829,50 +24446,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: FUL_Belly
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1.22, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0.2107918, z: 0.113243}
-    mediumMaskBonesPosition: {x: 0, y: 0.217, z: 0.12}
-    largeMaskBonesPosition: {x: 0, y: 0.22, z: 0.13}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 1
-  - boneName: Clo_Belly_Front
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: -0.0002431, z: -0.103603}
-    mediumMaskBonesPosition: {x: 0, y: -0.02, z: -0.103603}
-    largeMaskBonesPosition: {x: 0, y: -0.03, z: -0.103603}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 1
-  - boneName: Clo_Belly_.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0.170192, y: 0.1103786, z: -0.080773}
-    mediumMaskBonesPosition: {x: 0.170192, y: 0.1103786, z: -0.080773}
-    largeMaskBonesPosition: {x: 0.21, y: 0.1103786, z: -0.080773}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Clo_Belly_.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: -0.170192, y: 0.1103786, z: -0.080773}
-    mediumMaskBonesPosition: {x: -0.170192, y: 0.1103786, z: -0.080773}
-    largeMaskBonesPosition: {x: -0.21, y: 0.1103786, z: -0.080773}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1851656414}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &1084411894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25364,20 +24943,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: Ful_Head
-    smallMaskBonesScale: {x: 0, y: 0, z: 0}
-    mediumMaskBonesScale: {x: 0, y: 0, z: 0}
-    largeMaskBonesScale: {x: 0, y: 0, z: 0}
-    smallMaskBonesPosition: {x: 0, y: -0.0025, z: 0.0102}
-    mediumMaskBonesPosition: {x: 0, y: 0.015, z: 0.0102}
-    largeMaskBonesPosition: {x: 0, y: 0.028, z: 0.0102}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 0
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 987546397}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &1120644016
 GameObject:
   m_ObjectHideFlags: 0
@@ -27492,150 +27063,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: Hand_L_.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 0.8, z: 1}
-    largeMaskBonesScale: {x: 1, y: 0.6, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: Hand_L_.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 0.8, z: 1}
-    largeMaskBonesScale: {x: 1, y: 0.6, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-hand.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1.23, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1.33, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-hand.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1.23, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1.33, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_01.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Full-forearm_01.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Full-forearm_02.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0.1322043, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.159, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.212, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Full-forearm_02.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0.1322043, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.159, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.212, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Medial_EpicondyLe.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: FUL_Medial_EpicondyLe.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.027, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.08, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Ful_upper_arm.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.025, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.035, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Ful_upper_arm.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.025, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.035, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Full_upper_Arm_01.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0.1163525, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.142, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.193, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
-  - boneName: Full_upper_Arm_01.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0.1163525, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0.142, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0.193, z: 0}
-    boneInfoList:
-    - scaleEnabled: 0
-      positionEnabled: 1
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1205796227}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &1210725721
 GameObject:
   m_ObjectHideFlags: 0
@@ -29163,7 +28596,7 @@ MonoBehaviour:
     mediumMaskBonesScale: {x: 1.15, y: 1, z: 1}
     largeMaskBonesScale: {x: 1.6, y: 1, z: 1}
     smallMaskBonesPosition: {x: 0.006350198, y: -0.01174952, z: 0.0804247}
-    mediumMaskBonesPosition: {x: 0.004225099, y: -0.01362476, z: 0.10016235}
+    mediumMaskBonesPosition: {x: 0.004225099, y: -0.01362476, z: 0.1001623}
     largeMaskBonesPosition: {x: -0.02, y: -0.0155, z: 0.15}
     boneInfoList:
     - scaleEnabled: 1
@@ -29173,7 +28606,7 @@ MonoBehaviour:
     mediumMaskBonesScale: {x: 1.15, y: 1, z: 1}
     largeMaskBonesScale: {x: 1.6, y: 1, z: 1}
     smallMaskBonesPosition: {x: -0.006350198, y: -0.01174952, z: 0.0804247}
-    mediumMaskBonesPosition: {x: -0.004225099, y: -0.01362476, z: 0.10016235}
+    mediumMaskBonesPosition: {x: -0.004225099, y: -0.01362476, z: 0.1001623}
     largeMaskBonesPosition: {x: 0.02, y: -0.0155, z: 0.15}
     boneInfoList:
     - scaleEnabled: 1
@@ -29181,6 +28614,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 512669851}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &1287015759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29364,50 +28799,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: FUL_Full-forearm_01.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_01.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_02.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_02.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 271128269}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &1292436595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30886,6 +30283,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 221689382}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &1364696079
 GameObject:
   m_ObjectHideFlags: 0
@@ -31574,20 +30973,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: FuL_UpperBust
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.02, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1.03, y: 1.05, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 1
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1801400368}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &1397046508
 GameObject:
   m_ObjectHideFlags: 0
@@ -31700,11 +31091,13 @@ MonoBehaviour:
     mediumMaskBonesPosition: {x: 0, y: 0.02, z: 0}
     largeMaskBonesPosition: {x: 0, y: 0.04, z: 0}
     boneInfoList:
-    - scaleEnabled: 0
+    - scaleEnabled: 1
       positionEnabled: 1
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1397046510}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &1397457838
 GameObject:
   m_ObjectHideFlags: 0
@@ -33658,50 +33051,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: FUL_Full-forearm_01.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_01.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_02.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_02.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 2112875321}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &1479843651
 GameObject:
   m_ObjectHideFlags: 0
@@ -36184,50 +35539,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: Ful_upper_arm.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.2, y: 1.2, z: 1.2}
-    largeMaskBonesScale: {x: 1.4, y: 1.4, z: 1.4}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: Ful_upper_arm.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.2, y: 1.2, z: 1.2}
-    largeMaskBonesScale: {x: 1.4, y: 1.4, z: 1.4}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: Full_upper_Arm_01.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.2, y: 1.2, z: 1.2}
-    largeMaskBonesScale: {x: 1.4, y: 1.4, z: 1.4}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: Full_upper_Arm_01.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.2, y: 1.2, z: 1.2}
-    largeMaskBonesScale: {x: 1.4, y: 1.4, z: 1.4}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1456078025}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &1600561080
 GameObject:
   m_ObjectHideFlags: 0
@@ -36578,6 +35895,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1622600060}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &1622600060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42093,6 +41412,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1868551215}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &1869133773
 GameObject:
   m_ObjectHideFlags: 0
@@ -42298,30 +41619,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: FuL_Hips.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1.22, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FuL_Hips.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1, z: 1}
-    largeMaskBonesScale: {x: 1.22, y: 1, z: 1}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1489747964}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &1873330149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42792,6 +42095,8 @@ MonoBehaviour:
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 2020225075}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &1885816323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44279,50 +43584,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boneData:
-  - boneName: FUL_Full-forearm_01.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_01.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_02.L
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
-  - boneName: FUL_Full-forearm_02.R
-    smallMaskBonesScale: {x: 1, y: 1, z: 1}
-    mediumMaskBonesScale: {x: 1.15, y: 1.15, z: 1.15}
-    largeMaskBonesScale: {x: 1.25, y: 1.25, z: 1.25}
-    smallMaskBonesPosition: {x: 0, y: 0, z: 0}
-    mediumMaskBonesPosition: {x: 0, y: 0, z: 0}
-    largeMaskBonesPosition: {x: 0, y: 0, z: 0}
-    boneInfoList:
-    - scaleEnabled: 1
-      positionEnabled: 0
+  _boneData: []
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1241017695}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &1936818724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44601,48 +43868,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _boneData:
   - boneName: Leg_Lengith-thigh.L
-    smallMaskBonesScale: {x: 0, y: 0, z: 0}
-    mediumMaskBonesScale: {x: 0, y: 0, z: 0}
-    largeMaskBonesScale: {x: 0, y: 0, z: 0}
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0.0005, y: 0.0205, z: 0.002}
     largeMaskBonesPosition: {x: 0.001, y: 0.041, z: 0.004}
     boneInfoList:
-    - scaleEnabled: 0
+    - scaleEnabled: 1
       positionEnabled: 1
   - boneName: Leg_Lengith-shin.L
-    smallMaskBonesScale: {x: 0, y: 0, z: 0}
-    mediumMaskBonesScale: {x: 0, y: 0, z: 0}
-    largeMaskBonesScale: {x: 0, y: 0, z: 0}
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0.001, y: 0.03, z: -0.006}
     largeMaskBonesPosition: {x: 0.003, y: 0.118, z: -0.023}
     boneInfoList:
-    - scaleEnabled: 0
+    - scaleEnabled: 1
       positionEnabled: 1
   - boneName: Leg_Lengith-foot.L
-    smallMaskBonesScale: {x: 0, y: 0, z: 0}
-    mediumMaskBonesScale: {x: 0, y: 0, z: 0}
-    largeMaskBonesScale: {x: 0, y: 0, z: 0}
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0, y: 0.015, z: 0.027}
     largeMaskBonesPosition: {x: 0, y: 0.059, z: 0.105}
     boneInfoList:
-    - scaleEnabled: 0
+    - scaleEnabled: 1
       positionEnabled: 1
   - boneName: Leg_Lengith-toe.L
-    smallMaskBonesScale: {x: 0, y: 0, z: 0}
-    mediumMaskBonesScale: {x: 0, y: 0, z: 0}
-    largeMaskBonesScale: {x: 0, y: 0, z: 0}
+    smallMaskBonesScale: {x: 1, y: 1, z: 1}
+    mediumMaskBonesScale: {x: 1, y: 1, z: 1}
+    largeMaskBonesScale: {x: 1, y: 1, z: 1}
     smallMaskBonesPosition: {x: 0, y: 0, z: 0}
     mediumMaskBonesPosition: {x: 0, y: 0, z: -0.031}
     largeMaskBonesPosition: {x: 0, y: 0.001, z: -0.121}
     boneInfoList:
-    - scaleEnabled: 0
+    - scaleEnabled: 1
       positionEnabled: 1
   isSmallSize: 1
   isMediumSize: 0
   sizeSlider: {fileID: 1943173882}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!1 &1943918659
 GameObject:
   m_ObjectHideFlags: 0
@@ -49755,27 +49024,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9183272443051102129}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &919132148858894911
+--- !u!95 &919132148858894911 stripped
 Animator:
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 5191733846588313333, guid: e6e3a42b06b186346afe368131163246,
+    type: 3}
+  m_PrefabInstance: {fileID: 9183272443051102129}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &919132148858894913
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148858894909}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f282119be4c79714aaee04a80bb95576, type: 3}
-  m_Controller: {fileID: 9100000, guid: d58d820813977a94884f76c4966a5224, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d48e69c5705e64aaf2b2d8588bb5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boneData: []
+  isSmallSize: 1
+  isMediumSize: 0
+  sizeSlider: {fileID: 0}
+  avatar: {fileID: 0}
+  instantiatedObjectPrefab: {fileID: 0}
 --- !u!114 &994723040200470479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51831,7 +51103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8354125967227973397}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.039198454, y: 0.96079993, z: -0.19316708, w: -0.19497047}
+  m_LocalRotation: {x: -0.039198466, y: 0.96079993, z: -0.19316706, w: -0.1949705}
   m_LocalPosition: {x: 0.8, y: 1.8, z: 1.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -52087,7 +51359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3021498913833848680}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.039198454, y: 0.96079993, z: -0.19316708, w: -0.19497047}
+  m_LocalRotation: {x: -0.039198466, y: 0.96079993, z: -0.19316706, w: -0.1949705}
   m_LocalPosition: {x: 0.8, y: 1.8, z: 1.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -53043,6 +52315,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5191733846588313333, guid: e6e3a42b06b186346afe368131163246,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5670063889764687665, guid: e6e3a42b06b186346afe368131163246,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53098,9 +52375,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Genesis_8_HyperRig
       objectReference: {fileID: 0}
-    - target: {fileID: 7561388238315740304, guid: e6e3a42b06b186346afe368131163246,
+    - target: {fileID: 6652972602725519879, guid: e6e3a42b06b186346afe368131163246,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -53110,7 +52387,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5696720289585411998, guid: e6e3a42b06b186346afe368131163246,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 919132148858894911}
+      addedObject: {fileID: 919132148858894913}
   m_SourcePrefab: {fileID: 100100000, guid: e6e3a42b06b186346afe368131163246, type: 3}
 --- !u!114 &9210434944745278539
 MonoBehaviour:

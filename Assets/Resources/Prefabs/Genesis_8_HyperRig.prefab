@@ -2328,7 +2328,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000019978712, y: -0.00000012010291, z: -5.4078986e-10,
     w: 1}
-  m_LocalPosition: {x: 0, y: 0.000000029803942, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7042,6 +7042,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5670063889764687665}
+  - component: {fileID: 5191733846588313333}
   m_Layer: 0
   m_Name: Genesis_8_HyperRig
   m_TagString: Untagged
@@ -7071,6 +7072,27 @@ Transform:
   - {fileID: 4349655744902680055}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &5191733846588313333
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5696720289585411998}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: f282119be4c79714aaee04a80bb95576, type: 3}
+  m_Controller: {fileID: 9100000, guid: d58d820813977a94884f76c4966a5224, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5718517903361157808
 GameObject:
   m_ObjectHideFlags: 0
@@ -9464,7 +9486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1215055867365733738
 Transform:
   m_ObjectHideFlags: 0

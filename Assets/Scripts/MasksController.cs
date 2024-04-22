@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class MasksController : MonoBehaviour
 {
@@ -35,25 +34,23 @@ public class MasksController : MonoBehaviour
     public bool isMediumSize;
 
     public Slider sizeSlider;
+    public Transform avatar;
+    public GameObject instantiatedObjectPrefab;
+    private GameObject instantiatedObject;
 
-    void Start()
+    private void Start()
     {
-        BonesInScene();
         sizeSlider.onValueChanged.AddListener(OnSizeSliderChanged);
+
         SetSize(0);
     }
 
-    void Update()
+    private void Update()
     {
         BoneScales();
     }
 
-    public void UpdateBoneDictionary()
-    {
-        BonesInScene();
-    }
-
-    public void OnSizeSliderChanged(float value)
+    private void OnSizeSliderChanged(float value)
     {
         SetSize(value);
     }
@@ -61,62 +58,92 @@ public class MasksController : MonoBehaviour
     private void BonesInScene()
     {
         _groupedBones.Clear();
+
         foreach (BoneData boneData in _boneData)
         {
             Transform[] bones = FindBonesWithName(boneData.boneName);
             foreach (Transform bone in bones)
             {
-                if (!_groupedBones.ContainsKey(boneData.boneName))
+                string boneName = bone.name;
+                if (!_groupedBones.ContainsKey(boneName))
                 {
-                    _groupedBones[boneData.boneName] = new List<Transform>();
+                    _groupedBones[boneName] = new List<Transform>();
                 }
-                _groupedBones[boneData.boneName].Add(bone);
+                _groupedBones[boneName].Add(bone);
             }
         }
     }
 
     private void BoneScales()
     {
-        foreach (KeyValuePair<string, List<Transform>> entry in _groupedBones)
+        foreach (BoneData boneData in _boneData)
         {
+            Transform[] bones = FindBonesWithName(boneData.boneName);
             Vector3 scales;
             Vector3 positions;
 
             if (isSmallSize)
             {
-                scales = _boneData[0].smallMaskBonesScale;
-                positions = _boneData[0].smallMaskBonesPosition;
+                scales = boneData.smallMaskBonesScale;
+                positions = boneData.smallMaskBonesPosition;
             }
             else if (isMediumSize)
             {
-                scales = _boneData[0].mediumMaskBonesScale;
-                positions = _boneData[0].mediumMaskBonesPosition;
+                scales = boneData.mediumMaskBonesScale;
+                positions = boneData.mediumMaskBonesPosition;
             }
             else
             {
-                scales = _boneData[0].largeMaskBonesScale;
-                positions = _boneData[0].largeMaskBonesPosition;
+                scales = boneData.largeMaskBonesScale;
+                positions = boneData.largeMaskBonesPosition;
             }
 
-            Vector3 globalScale = entry.Value[0].parent.lossyScale;
-            Vector3 targetScale = Vector3.Scale(scales, new Vector3(1.0f / globalScale.x, 1.0f / globalScale.y, 1.0f / globalScale.z));
-
-            foreach (Transform bone in entry.Value)
+            foreach (Transform bone in bones)
             {
-                if (bone == null) 
-                    continue; 
+                if (bone == null)
+                    continue;
 
-                if (_boneData[0].boneInfoList[0].scaleEnabled)
+                if (ShouldScaleBone(boneData, bone.name))
                 {
+                    Vector3 globalScale = bone.parent.lossyScale;
+                    Vector3 targetScale = Vector3.Scale(scales, new Vector3(1.0f / globalScale.x, 1.0f / globalScale.y, 1.0f / globalScale.z));
+
                     bone.localScale = Vector3.Lerp(bone.localScale, targetScale, Time.deltaTime * 5f);
                 }
 
-                if (_boneData[0].boneInfoList[0].positionEnabled)
+                int index = FindBoneIndex(boneData, bone.name);
+                if (index != -1 && boneData.boneInfoList[index].positionEnabled)
                 {
                     bone.localPosition = Vector3.Lerp(bone.localPosition, positions, Time.deltaTime * 5f);
                 }
             }
         }
+    }
+
+    private bool ShouldScaleBone(BoneData boneData, string boneName)
+    {
+        if ((isSmallSize && boneData.smallMaskBonesScale != Vector3.zero) ||
+            (isMediumSize && boneData.mediumMaskBonesScale != Vector3.zero) ||
+            (!isSmallSize && !isMediumSize && boneData.largeMaskBonesScale != Vector3.zero))
+        {
+            int index = FindBoneIndex(boneData, boneName);
+            return index != -1 && boneData.boneInfoList[index].scaleEnabled;
+        }
+
+        return false;
+    }
+
+
+    private int FindBoneIndex(BoneData boneData, string boneName)
+    {
+        for (int i = 0; i < boneData.boneInfoList.Count; i++)
+        {
+            if (boneData.boneInfoList[i].scaleEnabled && boneData.boneName == boneName)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public void SetSize(float value)
@@ -141,7 +168,7 @@ public class MasksController : MonoBehaviour
     private Transform[] FindBonesWithName(string boneName)
     {
         List<Transform> bones = new List<Transform>();
-        GameObject[] bonesInScene = SceneManager.GetActiveScene().GetRootGameObjects();
+        GameObject[] bonesInScene = FindObjectsOfType<GameObject>();
 
         foreach (GameObject go in bonesInScene)
         {
@@ -157,8 +184,12 @@ public class MasksController : MonoBehaviour
         return bones.ToArray();
     }
 
-    public BoneData[] GetBoneData()
+    public void InstantiateObject()
     {
-        return _boneData;
+        if (instantiatedObjectPrefab != null)
+        {
+            instantiatedObject = Instantiate(instantiatedObjectPrefab, avatar);
+            instantiatedObject.transform.localScale = avatar.localScale;
+        }
     }
 }
