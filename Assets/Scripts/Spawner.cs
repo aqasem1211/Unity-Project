@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static MasksController;
 
 public class Spawner : MonoBehaviour
 {
@@ -8,9 +9,15 @@ public class Spawner : MonoBehaviour
     private GameObject instantiatedObject;
     public Animator characterAnimator;
 
+    public GameObject objectToStart;
+
     private bool isAvatarWalking = false;
     private float avatarAnimationTime = 0f;
 
+    private void Start()
+    {
+        instantiatedObject = Instantiate(objectToStart, Vector3.zero, Quaternion.identity);
+    }
 
     public void PrefabsInstantiate()
     {
@@ -26,15 +33,16 @@ public class Spawner : MonoBehaviour
 
             instantiatedObject = Instantiate(prefabToInstantiate, Vector3.zero, Quaternion.identity);
 
-            Animator pantsAnimator = instantiatedObject.GetComponent<Animator>();
+            Animator maskAnimator = instantiatedObject.GetComponent<Animator>();
 
-            if (characterAnimator != null && pantsAnimator != null)
+            if (characterAnimator != null && maskAnimator != null)
             {
-                pantsAnimator.SetBool("isWalking", isAvatarWalking);
-                pantsAnimator.SetBool("isIdle", !isAvatarWalking);
+                maskAnimator.SetBool("isWalking", isAvatarWalking);
+                maskAnimator.SetBool("isIdle", !isAvatarWalking);
 
-                pantsAnimator.Play("Base Layer." + (isAvatarWalking ? "Walk" : "Idle"), 0, avatarAnimationTime);
+                maskAnimator.Play("Base Layer." + (isAvatarWalking ? "Walk" : "Idle"), 0, avatarAnimationTime);
             }
+
         }
     }
 
@@ -42,11 +50,11 @@ public class Spawner : MonoBehaviour
     {
         if (instantiatedObject != null)
         {
-            Animator pantsAnimator = instantiatedObject.GetComponent<Animator>();
-            if (pantsAnimator != null)
+            Animator maskAnimator = instantiatedObject.GetComponent<Animator>();
+            if (maskAnimator != null)
             {
-                pantsAnimator.SetBool("isWalking", isWalking);
-                pantsAnimator.SetBool("isIdle", !isWalking);
+                maskAnimator.SetBool("isWalking", isWalking);
+                maskAnimator.SetBool("isIdle", !isWalking);
             }
         }
     }
