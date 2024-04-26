@@ -13,52 +13,24 @@ public class MasksController : MonoBehaviour
         [Header("Bone Name")]
         public string boneName;
 
-        //[Space]
-        //[Header("Bone Text Field")]
-        //public TMP_Text boneScaleText;
-        //public TMP_Text boneTransformText;
 
         [Space]
-        [Header("Small Scale")]
+        [Header("Scale")]
         public Vector3 smallMaskBonesScale;
-        public TMP_InputField smallScaleInputX;
-        public TMP_InputField smallScaleInputY;
-        public TMP_InputField smallScaleInputZ;
-
-        [Space]
-        [Header("Medium Scale")]
         public Vector3 mediumMaskBonesScale;
-        public TMP_InputField mediumScaleInputX;
-        public TMP_InputField mediumScaleInputY;
-        public TMP_InputField mediumScaleInputZ;
-
-        [Space]
-        [Header("Large Scale")]
         public Vector3 largeMaskBonesScale;
-        public TMP_InputField largeScaleInputX;
-        public TMP_InputField largeScaleInputY;
-        public TMP_InputField largeScaleInputZ;
+        public TMP_InputField scaleInputX;
+        public TMP_InputField scaleInputY;
+        public TMP_InputField scaleInputZ;
 
         [Space]
-        [Header("Small Transform")]
+        [Header("Transform")]
         public Vector3 smallMaskBonesPosition;
-        public TMP_InputField smallTransformInputX;
-        public TMP_InputField smallTransformInputY;
-        public TMP_InputField smallTransformInputZ;
-
-        [Space]
-        [Header("Medium Transform")]
         public Vector3 mediumMaskBonesPosition;
-        public TMP_InputField mediumTransformInputX;
-        public TMP_InputField mediumTransformInputY;
-        public TMP_InputField mediumTransformInputZ;
-
-        [Space]
-        [Header("Large Transform")]
         public Vector3 largeMaskBonesPosition;
-        public TMP_InputField largeTransformInputX;
-        public TMP_InputField largeTransformInputY;
-        public TMP_InputField largeTransformInputZ;
+        public TMP_InputField transformInputX;
+        public TMP_InputField transformInputY;
+        public TMP_InputField transformInputZ;
 
         [Space]
         [Header("isEnabled?")]
@@ -77,6 +49,11 @@ public class MasksController : MonoBehaviour
     public GameObject instantiatedObjectPrefab;
     private GameObject instantiatedObject;
 
+    public BoneData[] GetBoneData()
+    {
+        return _boneData;
+    }
+
     private void Start()
     {
         sizeSlider.onValueChanged.AddListener(OnSizeSliderChanged);
@@ -86,6 +63,15 @@ public class MasksController : MonoBehaviour
         {
             AddInputListeners(boneData);
             UpdateInputFields(boneData);
+
+            // Set input fields to small mask values
+            boneData.scaleInputX.text = boneData.smallMaskBonesScale.x.ToString();
+            boneData.scaleInputY.text = boneData.smallMaskBonesScale.y.ToString();
+            boneData.scaleInputZ.text = boneData.smallMaskBonesScale.z.ToString();
+
+            boneData.transformInputX.text = boneData.smallMaskBonesPosition.x.ToString();
+            boneData.transformInputY.text = boneData.smallMaskBonesPosition.y.ToString();
+            boneData.transformInputZ.text = boneData.smallMaskBonesPosition.z.ToString();
         }
     }
 
@@ -96,48 +82,23 @@ public class MasksController : MonoBehaviour
 
     private void AddInputListeners(BoneData boneData)
     {
-        if (boneData.smallScaleInputX != null)
-            boneData.smallScaleInputX.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.smallMaskBonesScale, 0));
-        if (boneData.smallScaleInputY != null)
-            boneData.smallScaleInputY.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.smallMaskBonesScale, 1));
-        if (boneData.smallScaleInputZ != null)
-            boneData.smallScaleInputZ.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.smallMaskBonesScale, 2));
+        // Listen only to input fields corresponding to large mask bones scale
+        if (boneData.scaleInputX != null)
+            boneData.scaleInputX.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesScale, 0));
+        if (boneData.scaleInputY != null)
+            boneData.scaleInputY.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesScale, 1));
+        if (boneData.scaleInputZ != null)
+            boneData.scaleInputZ.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesScale, 2));
 
-        if (boneData.mediumScaleInputX != null)
-            boneData.mediumScaleInputX.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.mediumMaskBonesScale, 0));
-        if (boneData.mediumScaleInputY != null)
-            boneData.mediumScaleInputY.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.mediumMaskBonesScale, 1));
-        if (boneData.mediumScaleInputZ != null)
-            boneData.mediumScaleInputZ.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.mediumMaskBonesScale, 2));
-
-        if (boneData.largeScaleInputX != null)
-            boneData.largeScaleInputX.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesScale, 0));
-        if (boneData.largeScaleInputY != null)
-            boneData.largeScaleInputY.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesScale, 1));
-        if (boneData.largeScaleInputZ != null)
-            boneData.largeScaleInputZ.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesScale, 2));
-
-        if (boneData.smallTransformInputX != null)
-            boneData.smallTransformInputX.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.smallMaskBonesPosition, 0));
-        if (boneData.smallTransformInputY != null)
-            boneData.smallTransformInputY.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.smallMaskBonesPosition, 1));
-        if (boneData.smallTransformInputZ != null)
-            boneData.smallTransformInputZ.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.smallMaskBonesPosition, 2));
-
-        if (boneData.mediumTransformInputX != null)
-            boneData.mediumTransformInputX.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.mediumMaskBonesPosition, 0));
-        if (boneData.mediumTransformInputY != null)
-            boneData.mediumTransformInputY.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.mediumMaskBonesPosition, 1));
-        if (boneData.mediumTransformInputZ != null)
-            boneData.mediumTransformInputZ.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.mediumMaskBonesPosition, 2));
-
-        if (boneData.largeTransformInputX != null)
-            boneData.largeTransformInputX.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesPosition, 0));
-        if (boneData.largeTransformInputY != null)
-            boneData.largeTransformInputY.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesPosition, 1));
-        if (boneData.largeTransformInputZ != null)
-            boneData.largeTransformInputZ.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesPosition, 2));
+        // Listen only to input fields corresponding to large mask bones position
+        if (boneData.transformInputX != null)
+            boneData.transformInputX.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesPosition, 0));
+        if (boneData.transformInputY != null)
+            boneData.transformInputY.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesPosition, 1));
+        if (boneData.transformInputZ != null)
+            boneData.transformInputZ.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesPosition, 2));
     }
+
 
     private void UpdateVector3FromInput(string value, Vector3 vector, int index)
     {
@@ -150,49 +111,47 @@ public class MasksController : MonoBehaviour
 
     private void UpdateInputFields(BoneData boneData)
     {
-        if(boneData.smallScaleInputX != null)
-            boneData.smallScaleInputX.text = boneData.smallMaskBonesScale.x.ToString();
-        if (boneData.smallScaleInputY != null)
-            boneData.smallScaleInputY.text = boneData.smallMaskBonesScale.y.ToString();
-        if (boneData.smallScaleInputZ != null)
-            boneData.smallScaleInputZ.text = boneData.smallMaskBonesScale.z.ToString();
+        if (boneData.scaleInputX != null)
+            boneData.scaleInputX.text = boneData.smallMaskBonesScale.x.ToString();
+        if (boneData.scaleInputY != null)
+            boneData.scaleInputY.text = boneData.smallMaskBonesScale.y.ToString();
+        if (boneData.scaleInputZ != null)
+            boneData.scaleInputZ.text = boneData.smallMaskBonesScale.z.ToString();
 
+        if (boneData.scaleInputX != null)
+            boneData.scaleInputX.text = boneData.mediumMaskBonesScale.x.ToString();
+        if (boneData.scaleInputY != null)
+            boneData.scaleInputY.text = boneData.mediumMaskBonesScale.y.ToString();
+        if (boneData.scaleInputZ != null)
+            boneData.scaleInputZ.text = boneData.mediumMaskBonesScale.z.ToString();
 
-        if (boneData.mediumScaleInputX != null)
-            boneData.mediumScaleInputX.text = boneData.mediumMaskBonesScale.x.ToString();
-        if (boneData.mediumScaleInputY != null)
-            boneData.mediumScaleInputY.text = boneData.mediumMaskBonesScale.y.ToString();
-        if (boneData.mediumScaleInputZ != null)
-            boneData.mediumScaleInputZ.text = boneData.mediumMaskBonesScale.z.ToString();
+        if (boneData.scaleInputX != null)
+            boneData.scaleInputX.text = boneData.largeMaskBonesScale.x.ToString();
+        if (boneData.scaleInputY != null)
+            boneData.scaleInputY.text = boneData.largeMaskBonesScale.y.ToString();
+        if (boneData.scaleInputZ != null)
+            boneData.scaleInputZ.text = boneData.largeMaskBonesScale.z.ToString();
 
+        if (boneData.transformInputX != null)
+            boneData.transformInputX.text = boneData.smallMaskBonesPosition.x.ToString();
+        if (boneData.transformInputY != null)
+            boneData.transformInputY.text = boneData.smallMaskBonesPosition.y.ToString();
+        if (boneData.transformInputZ != null)
+            boneData.transformInputZ.text = boneData.smallMaskBonesPosition.z.ToString();
 
-        if (boneData.largeScaleInputX != null)
-            boneData.largeScaleInputX.text = boneData.largeMaskBonesScale.x.ToString();
-        if (boneData.largeScaleInputY != null)
-            boneData.largeScaleInputY.text = boneData.largeMaskBonesScale.y.ToString();
-        if (boneData.largeScaleInputZ != null)
-            boneData.largeScaleInputZ.text = boneData.largeMaskBonesScale.z.ToString();
+        if (boneData.transformInputX != null)
+            boneData.transformInputX.text = boneData.mediumMaskBonesPosition.x.ToString();
+        if (boneData.transformInputY != null)
+            boneData.transformInputY.text = boneData.mediumMaskBonesPosition.y.ToString();
+        if (boneData.transformInputZ != null)
+            boneData.transformInputZ.text = boneData.mediumMaskBonesPosition.z.ToString();
 
-        if (boneData.smallTransformInputX != null)
-            boneData.smallTransformInputX.text = boneData.smallMaskBonesPosition.x.ToString();
-        if (boneData.smallTransformInputY != null)
-            boneData.smallTransformInputY.text = boneData.smallMaskBonesPosition.y.ToString();
-        if (boneData.smallTransformInputZ != null)
-            boneData.smallTransformInputZ.text = boneData.smallMaskBonesPosition.z.ToString();
-
-        if (boneData.mediumTransformInputX != null)
-            boneData.mediumTransformInputX.text = boneData.mediumMaskBonesPosition.x.ToString();
-        if (boneData.mediumTransformInputY != null)
-            boneData.mediumTransformInputY.text = boneData.mediumMaskBonesPosition.y.ToString();
-        if (boneData.mediumTransformInputZ != null)
-            boneData.mediumTransformInputZ.text = boneData.mediumMaskBonesPosition.z.ToString();
-
-        if (boneData.largeTransformInputX != null)
-            boneData.largeTransformInputX.text = boneData.largeMaskBonesPosition.x.ToString();
-        if (boneData.largeTransformInputY != null)
-            boneData.largeTransformInputY.text = boneData.largeMaskBonesPosition.y.ToString();
-        if (boneData.largeTransformInputZ != null)
-            boneData.largeTransformInputZ.text = boneData.largeMaskBonesPosition.z.ToString();
+        if (boneData.transformInputX != null)
+            boneData.transformInputX.text = boneData.largeMaskBonesPosition.x.ToString();
+        if (boneData.transformInputY != null)
+            boneData.transformInputY.text = boneData.largeMaskBonesPosition.y.ToString();
+        if (boneData.transformInputZ != null)
+            boneData.transformInputZ.text = boneData.largeMaskBonesPosition.z.ToString();
     }
 
     private void OnSizeSliderChanged(float value)
@@ -203,10 +162,43 @@ public class MasksController : MonoBehaviour
         {
             UpdateInputFields(boneData);
             UpdateBonePositions(boneData);
+
+            // Update scale inputs based on the current size
+            if (isSmallSize)
+            {
+                boneData.scaleInputX.text = boneData.smallMaskBonesScale.x.ToString();
+                boneData.scaleInputY.text = boneData.smallMaskBonesScale.y.ToString();
+                boneData.scaleInputZ.text = boneData.smallMaskBonesScale.z.ToString();
+
+                boneData.transformInputX.text = boneData.smallMaskBonesPosition.x.ToString();
+                boneData.transformInputY.text = boneData.smallMaskBonesPosition.y.ToString();
+                boneData.transformInputZ.text = boneData.smallMaskBonesPosition.z.ToString();
+            }
+            else if (isMediumSize)
+            {
+                boneData.scaleInputX.text = boneData.mediumMaskBonesScale.x.ToString();
+                boneData.scaleInputY.text = boneData.mediumMaskBonesScale.y.ToString();
+                boneData.scaleInputZ.text = boneData.mediumMaskBonesScale.z.ToString();
+
+                boneData.transformInputX.text = boneData.mediumMaskBonesPosition.x.ToString();
+                boneData.transformInputY.text = boneData.mediumMaskBonesPosition.y.ToString();
+                boneData.transformInputZ.text = boneData.mediumMaskBonesPosition.z.ToString();
+            }
+            else
+            {
+                boneData.scaleInputX.text = boneData.largeMaskBonesScale.x.ToString();
+                boneData.scaleInputY.text = boneData.largeMaskBonesScale.y.ToString();
+                boneData.scaleInputZ.text = boneData.largeMaskBonesScale.z.ToString();
+
+                boneData.transformInputX.text = boneData.largeMaskBonesPosition.x.ToString();
+                boneData.transformInputY.text = boneData.largeMaskBonesPosition.y.ToString();
+                boneData.transformInputZ.text = boneData.largeMaskBonesPosition.z.ToString();
+            }
         }
     }
 
-    private void UpdateBonePositions(BoneData boneData)
+
+    public void UpdateBonePositions(BoneData boneData)
     {
         foreach (Transform bone in FindBonesWithName(boneData.boneName))
         {
@@ -344,40 +336,41 @@ public class MasksController : MonoBehaviour
         }
     }
 
+
     public void ApplyInputValues()
     {
         foreach (BoneData boneData in _boneData)
         {
-            
-            boneData.smallMaskBonesScale.x = float.Parse(boneData.smallScaleInputX.text);
-            boneData.smallMaskBonesScale.y = float.Parse(boneData.smallScaleInputY.text);
-            boneData.smallMaskBonesScale.z = float.Parse(boneData.smallScaleInputZ.text);
 
-            boneData.mediumMaskBonesScale.x = float.Parse(boneData.mediumScaleInputX.text);
-            boneData.mediumMaskBonesScale.y = float.Parse(boneData.mediumScaleInputY.text);
-            boneData.mediumMaskBonesScale.z = float.Parse(boneData.mediumScaleInputZ.text);
+            //boneData.smallMaskBonesScale.x = float.Parse(boneData.scaleInputX.text);
+            //boneData.smallMaskBonesScale.y = float.Parse(boneData.scaleInputY.text);
+            //boneData.smallMaskBonesScale.z = float.Parse(boneData.scaleInputZ.text);
 
-            boneData.largeMaskBonesScale.x = float.Parse(boneData.largeScaleInputX.text);
-            boneData.largeMaskBonesScale.y = float.Parse(boneData.largeScaleInputY.text);
-            boneData.largeMaskBonesScale.z = float.Parse(boneData.largeScaleInputZ.text);
+            //boneData.mediumMaskBonesScale.x = float.Parse(boneData.scaleInputX.text);
+            //boneData.mediumMaskBonesScale.y = float.Parse(boneData.scaleInputY.text);
+            //boneData.mediumMaskBonesScale.z = float.Parse(boneData.scaleInputZ.text);
 
-            boneData.smallMaskBonesPosition.x = float.Parse(boneData.smallTransformInputX.text);
-            boneData.smallMaskBonesPosition.y = float.Parse(boneData.smallTransformInputY.text);
-            boneData.smallMaskBonesPosition.z = float.Parse(boneData.smallTransformInputZ.text);
+            boneData.largeMaskBonesScale.x = float.Parse(boneData.scaleInputX.text);
+            boneData.largeMaskBonesScale.y = float.Parse(boneData.scaleInputY.text);
+            boneData.largeMaskBonesScale.z = float.Parse(boneData.scaleInputZ.text);
 
-            boneData.mediumMaskBonesPosition.x = float.Parse(boneData.mediumTransformInputX.text);
-            boneData.mediumMaskBonesPosition.y = float.Parse(boneData.mediumTransformInputY.text);
-            boneData.mediumMaskBonesPosition.z = float.Parse(boneData.mediumTransformInputZ.text);
+            //boneData.smallMaskBonesPosition.x = float.Parse(boneData.transformInputX.text);
+            //boneData.smallMaskBonesPosition.y = float.Parse(boneData.transformInputY.text);
+            //boneData.smallMaskBonesPosition.z = float.Parse(boneData.transformInputZ.text);
 
-            boneData.largeMaskBonesPosition.x = float.Parse(boneData.largeTransformInputX.text);
-            boneData.largeMaskBonesPosition.y = float.Parse(boneData.largeTransformInputY.text);
-            boneData.largeMaskBonesPosition.z = float.Parse(boneData.largeTransformInputZ.text);
+            //boneData.mediumMaskBonesPosition.x = float.Parse(boneData.transformInputX.text);
+            //boneData.mediumMaskBonesPosition.y = float.Parse(boneData.transformInputY.text);
+            //boneData.mediumMaskBonesPosition.z = float.Parse(boneData.transformInputZ.text);
+
+            boneData.largeMaskBonesPosition.x = float.Parse(boneData.transformInputX.text);
+            boneData.largeMaskBonesPosition.y = float.Parse(boneData.transformInputY.text);
+            boneData.largeMaskBonesPosition.z = float.Parse(boneData.transformInputZ.text);
         }
 
         foreach (BoneData boneData in _boneData)
         {
             UpdateBonePositions(boneData);
         }
-       
+
     }
 }

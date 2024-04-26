@@ -8,7 +8,6 @@ public class Spawner : MonoBehaviour
     public GameObject prefabToInstantiate;
     private GameObject instantiatedObject;
     public Animator characterAnimator;
-
     public GameObject objectToStart;
 
     private bool isAvatarWalking = false;
@@ -17,6 +16,7 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         instantiatedObject = Instantiate(objectToStart, Vector3.zero, Quaternion.identity);
+
     }
 
     public void PrefabsInstantiate()
@@ -42,7 +42,6 @@ public class Spawner : MonoBehaviour
 
                 maskAnimator.Play("Base Layer." + (isAvatarWalking ? "Walk" : "Idle"), 0, avatarAnimationTime);
             }
-
         }
     }
 
@@ -58,4 +57,5 @@ public class Spawner : MonoBehaviour
             }
         }
     }
+
 }
