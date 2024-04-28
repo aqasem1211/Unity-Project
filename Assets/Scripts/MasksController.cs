@@ -64,7 +64,6 @@ public class MasksController : MonoBehaviour
             AddInputListeners(boneData);
             UpdateInputFields(boneData);
 
-            // Set input fields to small mask values
             boneData.scaleInputX.text = boneData.smallMaskBonesScale.x.ToString();
             boneData.scaleInputY.text = boneData.smallMaskBonesScale.y.ToString();
             boneData.scaleInputZ.text = boneData.smallMaskBonesScale.z.ToString();
@@ -82,7 +81,6 @@ public class MasksController : MonoBehaviour
 
     private void AddInputListeners(BoneData boneData)
     {
-        // Listen only to input fields corresponding to large mask bones scale
         if (boneData.scaleInputX != null)
             boneData.scaleInputX.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesScale, 0));
         if (boneData.scaleInputY != null)
@@ -90,7 +88,6 @@ public class MasksController : MonoBehaviour
         if (boneData.scaleInputZ != null)
             boneData.scaleInputZ.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesScale, 2));
 
-        // Listen only to input fields corresponding to large mask bones position
         if (boneData.transformInputX != null)
             boneData.transformInputX.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesPosition, 0));
         if (boneData.transformInputY != null)
@@ -163,7 +160,6 @@ public class MasksController : MonoBehaviour
             UpdateInputFields(boneData);
             UpdateBonePositions(boneData);
 
-            // Update scale inputs based on the current size
             if (isSmallSize)
             {
                 boneData.scaleInputX.text = boneData.smallMaskBonesScale.x.ToString();
@@ -373,4 +369,5 @@ public class MasksController : MonoBehaviour
         }
 
     }
+
 }

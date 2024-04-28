@@ -3,32 +3,66 @@ using UnityEngine.UI;
 
 public class BlendShape : MonoBehaviour
 {
-    public SkinnedMeshRenderer avatarRenderer; // Avatar's SkinnedMeshRenderer
-    public SkinnedMeshRenderer tShirtRenderer; // T-shirt's SkinnedMeshRenderer
+    public GameObject avatarObject;
+    public GameObject[] masksPrefab;
     public Slider slider;
-    private float blendShapeWeightRange = 100f; // Maximum blend shape weight (assumed to be 100)
-    private int blendShapeIndex = 0; // Index of the blend shape you want to control
+    public float blendShapeWeightRange;
+    public int blendShapeIndex;
+
+    private SkinnedMeshRenderer avatarRenderer;
 
     private void Start()
     {
-        slider.onValueChanged.AddListener(OnSliderValueChanged);
-    }
-
-    private void OnSliderValueChanged(float value)
-    {
-        if (avatarRenderer == null || tShirtRenderer == null)
+        if (slider == null)
         {
-            Debug.LogWarning("Avatar's or T-shirt's SkinnedMeshRenderer not set.");
             return;
         }
 
-        // Scale the slider value to match the blend shape weight range
-        float blendShapeWeight = value * blendShapeWeightRange / slider.maxValue;
+        slider.onValueChanged.AddListener(OnSliderValueChanged);
+        InitializeMasksRenderer();
+    }
 
-        // Update the blend shape weight for the avatar
+    private void InitializeMasksRenderer()
+    {
+        if (avatarObject == null)
+        {
+            return;
+        }
+
+        avatarRenderer = avatarObject.GetComponentInChildren<SkinnedMeshRenderer>();
+        if (avatarRenderer == null)
+        {
+            return;
+        }
+
+        foreach (var maskPrefab in masksPrefab)
+        {
+            SkinnedMeshRenderer maskRenderer = maskPrefab.GetComponentInChildren<SkinnedMeshRenderer>();
+            if (maskRenderer != null)
+            {
+                maskRenderer.SetBlendShapeWeight(blendShapeIndex, 0);
+            }
+        }
+    }
+
+    public void OnSliderValueChanged(float value)
+    {
+        if (avatarRenderer == null)
+        {
+            return;
+        }
+
+        float blendShapeWeight = value * blendShapeWeightRange;
+
         avatarRenderer.SetBlendShapeWeight(blendShapeIndex, blendShapeWeight);
 
-        // Apply the same weight to the blend shape on the T-shirt
-        tShirtRenderer.SetBlendShapeWeight(blendShapeIndex, blendShapeWeight);
+        foreach (var maskPrefab in masksPrefab)
+        {
+            SkinnedMeshRenderer maskRenderer = maskPrefab.GetComponentInChildren<SkinnedMeshRenderer>();
+            if (maskRenderer != null)
+            {
+                maskRenderer.SetBlendShapeWeight(blendShapeIndex, blendShapeWeight);
+            }
+        }
     }
 }

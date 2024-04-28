@@ -1,46 +1,76 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static MasksController;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject prefabToInstantiate;
     private GameObject instantiatedObject;
     public Animator characterAnimator;
-    public GameObject objectToStart;
-
-    private bool isAvatarWalking = false;
-    private float avatarAnimationTime = 0f;
-
-    private void Start()
-    {
-        instantiatedObject = Instantiate(objectToStart, Vector3.zero, Quaternion.identity);
-
-    }
+    public BlendShape blendShapeScript;
 
     public void PrefabsInstantiate()
     {
         if (instantiatedObject != null)
         {
             Destroy(instantiatedObject);
+
+            List<GameObject> masks = new List<GameObject>(blendShapeScript.masksPrefab);
+            masks.Remove(instantiatedObject);
+            blendShapeScript.masksPrefab = masks.ToArray();
+
             instantiatedObject = null;
         }
         else
         {
-            isAvatarWalking = characterAnimator.GetBool("isWalking");
-            avatarAnimationTime = characterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-
             instantiatedObject = Instantiate(prefabToInstantiate, Vector3.zero, Quaternion.identity);
+
+            blendShapeScript.avatarObject = instantiatedObject;
+
+            SetInstantiatedObjectBlendShape();
+
+            List<GameObject> masks = new List<GameObject>(blendShapeScript.masksPrefab);
+            masks.Add(instantiatedObject);
+            blendShapeScript.masksPrefab = masks.ToArray();
+
+            SetAnimationParameters();
+
+        }
+    }
+
+    private void SetInstantiatedObjectBlendShape()
+    {
+        if (blendShapeScript != null && blendShapeScript.avatarObject != null)
+        {
+            SkinnedMeshRenderer avatarRenderer = blendShapeScript.avatarObject.GetComponentInChildren<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer instantiatedRenderer = instantiatedObject.GetComponentInChildren<SkinnedMeshRenderer>();
+
+            if (avatarRenderer != null && instantiatedRenderer != null)
+            {
+                float currentSliderValue = blendShapeScript.slider.value;
+
+                float blendShapeWeight = currentSliderValue * blendShapeScript.blendShapeWeightRange;
+
+                instantiatedRenderer.SetBlendShapeWeight(blendShapeScript.blendShapeIndex, blendShapeWeight);
+            }
+        }
+    }
+
+
+    private void SetAnimationParameters()
+    {
+        if (characterAnimator != null && instantiatedObject != null)
+        {
+            bool isWalking = characterAnimator.GetBool("isWalking");
+            float normalizedTime = characterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
 
             Animator maskAnimator = instantiatedObject.GetComponent<Animator>();
 
-            if (characterAnimator != null && maskAnimator != null)
+            if (maskAnimator != null)
             {
-                maskAnimator.SetBool("isWalking", isAvatarWalking);
-                maskAnimator.SetBool("isIdle", !isAvatarWalking);
-
-                maskAnimator.Play("Base Layer." + (isAvatarWalking ? "Walk" : "Idle"), 0, avatarAnimationTime);
+                maskAnimator.SetBool("isWalking", isWalking);
+                maskAnimator.SetBool("isIdle", !isWalking);
+                maskAnimator.Play("Base Layer." + (isWalking ? "Walk" : "Idle"), 0, normalizedTime);
             }
         }
     }
@@ -57,5 +87,5 @@ public class Spawner : MonoBehaviour
             }
         }
     }
-
 }
+

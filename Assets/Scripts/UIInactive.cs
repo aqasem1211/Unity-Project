@@ -35,4 +35,5 @@ public class UIInactive : MonoBehaviour
             isActive = false;
         }
     }
+
 }
