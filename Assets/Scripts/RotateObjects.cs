@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using TMPro.Examples;
 using Cinemachine;
+using System.Linq;
+using System.Collections.Generic;
 
 public class RotateObjects : MonoBehaviour
 {
@@ -23,11 +25,6 @@ public class RotateObjects : MonoBehaviour
         {
             _initialRotations[i] = objectsToRotate[i].transform.rotation;
         }
-    }
-
-    private void Update()
-    {
-       
     }
 
     private void OnMouseDrag()

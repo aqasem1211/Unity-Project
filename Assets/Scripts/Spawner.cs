@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Spawner : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class Spawner : MonoBehaviour
     public Animator characterAnimator;
     public BlendShape blendShapeScript;
 
+
     public void PrefabsInstantiate()
     {
         if (instantiatedObject != null)
         {
+
             Destroy(instantiatedObject);
 
             List<GameObject> masks = new List<GameObject>(blendShapeScript.masksPrefab);
@@ -20,10 +23,12 @@ public class Spawner : MonoBehaviour
             blendShapeScript.masksPrefab = masks.ToArray();
 
             instantiatedObject = null;
+
         }
         else
         {
             instantiatedObject = Instantiate(prefabToInstantiate, Vector3.zero, Quaternion.identity);
+
 
             blendShapeScript.avatarObject = instantiatedObject;
 

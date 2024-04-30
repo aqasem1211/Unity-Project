@@ -1346,7 +1346,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282555680701610974}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87052070a685cea4ab8f5d05a69b34eb, type: 3}
   m_Name: 
@@ -1380,7 +1380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1340068419137330185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1838133758119274146, guid: e6e3a42b06b186346afe368131163246,
@@ -1754,6 +1754,11 @@ PrefabInstance:
       propertyPath: characterAnimator
       value: 
       objectReference: {fileID: 3998413397479981380}
+    - target: {fileID: 8118407926887616395, guid: dcc10d625f691bf4396aa93bd4e8cd5b,
+        type: 3}
+      propertyPath: rotateObjectsScript
+      value: 
+      objectReference: {fileID: 808818094909954447}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2304,7 +2309,22 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4fc8f02da24175f4f85ce45d44468583, type: 2}
     - target: {fileID: 5914704812945023003, guid: e6e3a42b06b186346afe368131163246,
         type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914704812945023003, guid: e6e3a42b06b186346afe368131163246,
+        type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914704812945023003, guid: e6e3a42b06b186346afe368131163246,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914704812945023003, guid: e6e3a42b06b186346afe368131163246,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[7]
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5914704812945023003, guid: e6e3a42b06b186346afe368131163246,
@@ -2339,9 +2359,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.25, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8095388719476995825
 PrefabInstance:
@@ -2371,6 +2391,11 @@ PrefabInstance:
       propertyPath: characterAnimator
       value: 
       objectReference: {fileID: 3998413397479981380}
+    - target: {fileID: 3565012029775654449, guid: 9722c209a46f6da4cb4ed7655ab5c974,
+        type: 3}
+      propertyPath: rotateObjectsScript
+      value: 
+      objectReference: {fileID: 808818094909954447}
     - target: {fileID: 5534022093001112147, guid: 9722c209a46f6da4cb4ed7655ab5c974,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2492,15 +2517,20 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 250.79688
       objectReference: {fileID: 0}
+    - target: {fileID: 687172079780339842, guid: b2339eef1395335439bbad71ee3df895,
+        type: 3}
+      propertyPath: m_text
+      value: Hair
+      objectReference: {fileID: 0}
     - target: {fileID: 1160580382150671275, guid: b2339eef1395335439bbad71ee3df895,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1160580382150671275, guid: b2339eef1395335439bbad71ee3df895,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1160580382150671275, guid: b2339eef1395335439bbad71ee3df895,
         type: 3}
@@ -2511,7 +2541,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 808818094909954447}
     - target: {fileID: 1160580382150671275, guid: b2339eef1395335439bbad71ee3df895,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -2520,17 +2550,17 @@ PrefabInstance:
     - target: {fileID: 1160580382150671275, guid: b2339eef1395335439bbad71ee3df895,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: NullCo
+      value: AddObjectToRotate
       objectReference: {fileID: 0}
     - target: {fileID: 1160580382150671275, guid: b2339eef1395335439bbad71ee3df895,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UIInactive, Assembly-CSharp
+      value: RotateObjects, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1160580382150671275, guid: b2339eef1395335439bbad71ee3df895,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1341752770079060463, guid: b2339eef1395335439bbad71ee3df895,
         type: 3}
