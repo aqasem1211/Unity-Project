@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateAvatarResponseCharacteristics
+// Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+public class Characteristics
 {
     [JsonProperty("age")]
     public int Age { get; set; }
@@ -15,7 +16,31 @@ public class CreateAvatarResponseCharacteristics
     public int EyeColor { get; set; }
 }
 
-public class CreateAvatarResponseEyes
+public class Data
+{
+    [JsonProperty("characteristics")]
+    public Characteristics Characteristics { get; set; }
+
+    [JsonProperty("hair")]
+    public Hair Hair { get; set; }
+
+    [JsonProperty("features")]
+    public Features Features { get; set; }
+
+    [JsonProperty("representation")]
+    public Representation Representation { get; set; }
+}
+
+public class Error
+{
+    [JsonProperty("errors")]
+    public object Errors { get; set; }
+
+    [JsonProperty("message")]
+    public object Message { get; set; }
+}
+
+public class Eyes
 {
     [JsonProperty("shape")]
     public string Shape { get; set; }
@@ -24,19 +49,19 @@ public class CreateAvatarResponseEyes
     public int Percentage { get; set; }
 }
 
-public class CreateAvatarResponseFeatures
+public class Features
 {
     [JsonProperty("mouth")]
-    public CreateAvatarResponseMouth Mouth { get; set; }
+    public Mouth Mouth { get; set; }
 
     [JsonProperty("eyes")]
-    public CreateAvatarResponseEyes Eyes { get; set; }
+    public Eyes Eyes { get; set; }
 
     [JsonProperty("lips")]
-    public CreateAvatarResponseLips Lips { get; set; }
+    public Lips Lips { get; set; }
 }
 
-public class CreateAvatarResponseHair
+public class Hair
 {
     [JsonProperty("type")]
     public string Type { get; set; }
@@ -51,7 +76,7 @@ public class CreateAvatarResponseHair
     public string ColorHex { get; set; }
 }
 
-public class CreateAvatarResponseLips
+public class Lips
 {
     [JsonProperty("shape")]
     public string Shape { get; set; }
@@ -60,7 +85,7 @@ public class CreateAvatarResponseLips
     public int Percentage { get; set; }
 }
 
-public class CreateAvatarResponseMorphs
+public class Morphs
 {
     [JsonProperty("labels")]
     public List<string> Labels { get; set; }
@@ -69,7 +94,7 @@ public class CreateAvatarResponseMorphs
     public List<double> Values { get; set; }
 }
 
-public class CreateAvatarResponseMouth
+public class Mouth
 {
     [JsonProperty("shape")]
     public string Shape { get; set; }
@@ -78,31 +103,28 @@ public class CreateAvatarResponseMouth
     public int Percentage { get; set; }
 }
 
-public class CreateAvatarResponseRepresentation
+public class Representation
 {
     [JsonProperty("morphs")]
-    public CreateAvatarResponseMorphs Morphs { get; set; }
+    public Morphs Morphs { get; set; }
 
     [JsonProperty("textures")]
-    public CreateAvatarResponseTextures Textures { get; set; }
+    public Textures Textures { get; set; }
 }
 
-public class CreateAvatarResponseRoot
+public class Root
 {
-    [JsonProperty("characteristics")]
-    public CreateAvatarResponseCharacteristics Characteristics { get; set; }
+    [JsonProperty("code")]
+    public int Code { get; set; }
 
-    [JsonProperty("hair")]
-    public CreateAvatarResponseHair Hair { get; set; }
+    [JsonProperty("data")]
+    public Data Data { get; set; }
 
-    [JsonProperty("features")]
-    public CreateAvatarResponseFeatures Features { get; set; }
-
-    [JsonProperty("representation")]
-    public CreateAvatarResponseRepresentation Representation { get; set; }
+    [JsonProperty("error")]
+    public Error Error { get; set; }
 }
 
-public class CreateAvatarResponseTextures
+public class Textures
 {
     [JsonProperty("skintone_id")]
     public int SkintoneId { get; set; }

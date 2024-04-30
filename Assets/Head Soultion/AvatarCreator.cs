@@ -1,7 +1,9 @@
+using BestHTTP;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using TMPro;
 using UnityEngine;
@@ -24,64 +26,58 @@ public class AvatarCreator : MonoBehaviour
         if (string.IsNullOrEmpty(userImageURL))
             return;
 
-        StartCoroutine(DownloadImageRoutine(userImageURL));
+        CreateAvatarRequestRoot request = new CreateAvatarRequestRoot();
+        request.Image = userImageURL;
+
+        string jsonRequestBody = JsonConvert.SerializeObject(request);
+
+        CallCreateAvatarAPI(jsonRequestBody);
     }
 
-    private IEnumerator DownloadImageRoutine(string imageUrl)
+    private void CallCreateAvatarAPI(string jsonRequestBody)
     {
-        using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(imageUrl))
+        var url = "https://api.28-app.com/api/Face/AvatarCreate";
+        var request = new HTTPRequest(new Uri(url), HTTPMethods.Post, OnDownloadGenerated3DHeadResponse);
+        request.SetHeader("accept", "*/*");
+        request.SetHeader("Content-Type", "application/json; charset=UTF-8");
+        request.RawData = System.Text.Encoding.UTF8.GetBytes(jsonRequestBody);
+        request.Send();
+    }
+
+    private void OnDownloadGenerated3DHeadResponse(HTTPRequest originalRequest, HTTPResponse response)
+    {
+        Debug.Log("Request sent successfully");
+        Debug.Log("Response: " + response.DataAsText);
+
+        var _response = JsonConvert.DeserializeObject<Root>(response.DataAsText);
+        SetBlendShapesFromRepresentation(_response);
+        SetAvatarFaceMaterial(_response);
+    }
+
+    private void SetAvatarFaceMaterial(Root response)
+    {
+        var faceTexture = response.Data.Representation.Textures.HeadTexture;
+        var faceMaterial = avatarSkinnedMeshRenderer.sharedMaterials.FirstOrDefault(mat => mat.name == "Face");
+
+        StartCoroutine(LoadFaceTexture(faceTexture, faceMaterial));
+    }
+
+    private IEnumerator LoadFaceTexture(string url, Material material)
+    {
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        yield return www.SendWebRequest();
+        if (www.result != UnityWebRequest.Result.Success)
         {
-            yield return www.SendWebRequest();
-
-            if (www.result != UnityWebRequest.Result.Success)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                Texture2D texture = DownloadHandlerTexture.GetContent(www);
-                byte[] imageBytes = texture.EncodeToPNG();
-                string base64String = Convert.ToBase64String(imageBytes);
-
-                CreateAvatarRequestRoot request = new CreateAvatarRequestRoot();
-                request.Image = base64String;
-
-                string jsonRequestBody = JsonConvert.SerializeObject(request);
-
-                StartCoroutine(CallCreateAvatarAPI(jsonRequestBody));
-            }
+            Debug.Log("www.error:" + www.error);
+        }
+        else
+        {
+            Texture2D myTexture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+            material.mainTexture = myTexture;
         }
     }
 
-    private IEnumerator CallCreateAvatarAPI(string jsonRequestBody)
-    {
-        string apiUrl = "http://46.4.77.151/doubt-the-urge/avatar/create";
-
-        using (UnityWebRequest www = new UnityWebRequest(apiUrl, "POST"))
-        {
-            www.SetRequestHeader("Content-Type", "application/json");
-
-            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonRequestBody);
-            www.uploadHandler = new UploadHandlerRaw(bodyRaw);
-
-            yield return www.SendWebRequest();
-
-            if (www.result != UnityWebRequest.Result.Success)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                Debug.Log("Request sent successfully");
-                Debug.Log("Response: " + www.downloadHandler.text);
-
-                var _response = JsonConvert.DeserializeObject<CreateAvatarResponseRoot>(www.downloadHandler.text);
-
-                SetBlendShapesFromRepresentation(_response);
-            }
-        }
-    }
-    public void SetBlendShapesFromRepresentation(CreateAvatarResponseRoot response)
+    public void SetBlendShapesFromRepresentation(Root response)
     {
         if (avatarSkinnedMeshRenderer == null)
         {
@@ -89,10 +85,10 @@ public class AvatarCreator : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < response.Representation.Morphs.Labels.Count; i++)
+        for (int i = 0; i < response.Data.Representation.Morphs.Labels.Count; i++)
         {
-            string blendShapeName = response.Representation.Morphs.Labels[i];
-            float blendShapeValue = (float)response.Representation.Morphs.Values[i];
+            string blendShapeName = response.Data.Representation.Morphs.Labels[i];
+            float blendShapeValue = (float)response.Data.Representation.Morphs.Values[i];
 
             // Find blend shape index by name
             int blendShapeIndex = avatarSkinnedMeshRenderer.sharedMesh.GetBlendShapeIndex(blendShapeName);
