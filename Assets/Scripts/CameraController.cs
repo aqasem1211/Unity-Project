@@ -5,7 +5,7 @@ public class CameraMovement : MonoBehaviour
 {
     public CinemachineVirtualCamera virtualCamera;
     public GameObject lookAt;
-
+ 
     public float rotationSpeed = 5f;
     public float transitionDuration = 2f;
 
@@ -19,10 +19,7 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
-
-
     }
-
     void Update()
     {
         if (isTransitioning)
@@ -42,7 +39,6 @@ public class CameraMovement : MonoBehaviour
             }
         }
     }
-
 
     public void MoveCameraToMainLocation()
     {
