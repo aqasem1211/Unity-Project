@@ -9,26 +9,28 @@ public class Spawner : MonoBehaviour
     private GameObject instantiatedObject;
     public Animator characterAnimator;
     public BlendShape blendShapeScript;
+    public RotateObjects rotateObjectsScript;
 
 
     public void PrefabsInstantiate()
     {
         if (instantiatedObject != null)
         {
-
             Destroy(instantiatedObject);
+
+            rotateObjectsScript.HandleInstantiatedOrDestroyedObject(instantiatedObject);
 
             List<GameObject> masks = new List<GameObject>(blendShapeScript.masksPrefab);
             masks.Remove(instantiatedObject);
             blendShapeScript.masksPrefab = masks.ToArray();
 
             instantiatedObject = null;
-
         }
         else
         {
             instantiatedObject = Instantiate(prefabToInstantiate, Vector3.zero, Quaternion.identity);
 
+            rotateObjectsScript.HandleInstantiatedOrDestroyedObject(instantiatedObject);
 
             blendShapeScript.avatarObject = instantiatedObject;
 
@@ -39,7 +41,6 @@ public class Spawner : MonoBehaviour
             blendShapeScript.masksPrefab = masks.ToArray();
 
             SetAnimationParameters();
-
         }
     }
 
@@ -60,7 +61,6 @@ public class Spawner : MonoBehaviour
             }
         }
     }
-
 
     private void SetAnimationParameters()
     {

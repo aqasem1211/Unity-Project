@@ -1,30 +1,67 @@
 using UnityEngine;
 using System.Collections;
-using TMPro.Examples;
-using Cinemachine;
-using System.Linq;
 using System.Collections.Generic;
 
 public class RotateObjects : MonoBehaviour
 {
+    public List<GameObject> objectsToRotate;
+    private List<Quaternion> _initialRotations;
 
-    public GameObject[] objectsToRotate;
-    private Quaternion[] _initialRotations;
+    private float _transitionDuration = 0.5f;
+    private float _rotationSpeed = 2;
 
-    [SerializeField]
-    private float _transitionDuration;
 
-    [SerializeField]
-    private float _rotationSpeed;
+    public delegate void ObjectHandler(GameObject obj);
 
-    void Start()
+    #pragma warning disable 0067
+    public static event ObjectHandler ObjectInstantiatedOrDestroyed;
+    #pragma warning restore 0067
+
+
+    private void Start()
     {
+        _initialRotations = new List<Quaternion>();
 
-        _initialRotations = new Quaternion[objectsToRotate.Length];
-        for (int i = 0; i < objectsToRotate.Length; i++)
+        foreach (GameObject obj in objectsToRotate)
         {
-            _initialRotations[i] = objectsToRotate[i].transform.rotation;
+            _initialRotations.Add(obj.transform.rotation);
         }
+
+        ObjectInstantiatedOrDestroyed += HandleInstantiatedOrDestroyedObject;
+    }
+
+    private void OnDestroy()
+    {
+        ObjectInstantiatedOrDestroyed -= HandleInstantiatedOrDestroyedObject;
+    }
+
+    public void HandleInstantiatedOrDestroyedObject(GameObject obj)
+    {
+        if (obj != null)
+        {
+            if (!IsObjectInList(obj))
+            {
+                objectsToRotate.Add(obj);
+                _initialRotations.Add(obj.transform.rotation);
+            }
+            else
+            {
+                int index = objectsToRotate.IndexOf(obj);
+                if (index != -1)
+                {
+                    objectsToRotate.RemoveAt(index);
+                    if (index < _initialRotations.Count)
+                    {
+                        _initialRotations.RemoveAt(index);
+                    }
+                }
+            }
+        }
+    }
+
+    private bool IsObjectInList(GameObject obj)
+    {
+        return objectsToRotate.Contains(obj);
     }
 
     private void OnMouseDrag()
@@ -44,30 +81,31 @@ public class RotateObjects : MonoBehaviour
 
     private IEnumerator TransitionToInitialRotations()
     {
-        float elapsedTime = 0f;
-
-        Quaternion[] currentRotations = new Quaternion[objectsToRotate.Length];
-        for (int i = 0; i < objectsToRotate.Length; i++)
-        {
-            currentRotations[i] = objectsToRotate[i].transform.rotation;
-        }
+        float elapsedTime = 0;
 
         while (elapsedTime < _transitionDuration)
         {
             float t = elapsedTime / _transitionDuration;
 
-            for (int i = 0; i < objectsToRotate.Length; i++)
+            for (int i = 0; i < objectsToRotate.Count; i++)
             {
-                objectsToRotate[i].transform.rotation = Quaternion.Lerp(currentRotations[i], _initialRotations[i], t);
+                if (i < _initialRotations.Count)
+                {
+                    Quaternion targetRotation = Quaternion.Lerp(objectsToRotate[i].transform.rotation, _initialRotations[i], t);
+                    objectsToRotate[i].transform.rotation = Quaternion.RotateTowards(objectsToRotate[i].transform.rotation, targetRotation, _rotationSpeed);
+                }
             }
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        for (int i = 0; i < objectsToRotate.Length; i++)
+        for (int i = 0; i < objectsToRotate.Count; i++)
         {
-            objectsToRotate[i].transform.rotation = _initialRotations[i];
+            if (i < _initialRotations.Count)
+            {
+                objectsToRotate[i].transform.rotation = _initialRotations[i];
+            }
         }
     }
 }
