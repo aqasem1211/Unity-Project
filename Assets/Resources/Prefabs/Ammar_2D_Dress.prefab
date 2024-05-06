@@ -6837,6 +6837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2679285249516078379}
   - component: {fileID: 3373777032164124227}
+  - component: {fileID: -8495246506513402530}
   m_Layer: 0
   m_Name: Ammar_2D_Dress
   m_TagString: Mask
@@ -6869,7 +6870,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6091945661390234977}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f282119be4c79714aaee04a80bb95576, type: 3}
   m_Controller: {fileID: 9100000, guid: d58d820813977a94884f76c4966a5224, type: 2}
   m_CullingMode: 0
@@ -6882,6 +6883,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-8495246506513402530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6091945661390234977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51653886ed979243a326191f13816a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avatarAnimator: {fileID: 0}
+  additionalAnimators:
+  - {fileID: 3373777032164124227}
+  spawner: {fileID: 0}
 --- !u!1 &6108274851258125132
 GameObject:
   m_ObjectHideFlags: 0

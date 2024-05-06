@@ -6,7 +6,7 @@ public class AvatarAnimation : MonoBehaviour
 {
     public Animator avatarAnimator;
     public Animator[] additionalAnimators;
-    public Spawner spawner;
+    public Spawner[] spawners;
 
     private void Start()
     {
@@ -20,10 +20,14 @@ public class AvatarAnimation : MonoBehaviour
         {
             avatarAnimator.SetBool("isWalking", true);
             avatarAnimator.SetBool("isIdle", false);
-            
 
-            spawner.NotifyAnimationState(true);
+            foreach (Spawner spawner in spawners)
+            {
+                if (spawner != null)
+                    spawner.NotifyAnimationState(true);
+            }
         }
+
     }
 
     public void IdleButtonClicked()
@@ -32,9 +36,12 @@ public class AvatarAnimation : MonoBehaviour
         {
             avatarAnimator.SetBool("isIdle", true);
             avatarAnimator.SetBool("isWalking", false);
-            avatarAnimator.SetBool("isAPose", false);
 
-            spawner.NotifyAnimationState(false);
+            foreach (Spawner spawner in spawners)
+            {
+                if (spawner != null)
+                    spawner.NotifyAnimationState(false);
+            }
         }
     }
 
@@ -46,7 +53,7 @@ public class AvatarAnimation : MonoBehaviour
             avatarAnimator.SetBool("isIdle", false);
             avatarAnimator.SetBool("isWalking", false);
 
-            spawner.NotifyAnimationState(false);
+            //spawner.NotifyAnimationState(false);
 
         }
 
