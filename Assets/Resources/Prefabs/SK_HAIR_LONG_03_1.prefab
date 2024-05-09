@@ -4051,7 +4051,6 @@ MonoBehaviour:
   avatarAnimator: {fileID: 0}
   additionalAnimators:
   - {fileID: 1320598370610442024}
-  spawner: {fileID: 0}
 --- !u!95 &1320598370610442024
 Animator:
   serializedVersion: 5

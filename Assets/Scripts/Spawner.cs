@@ -1,23 +1,31 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using System;
+using System.Collections.Generic;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject prefabToInstantiate;
     private GameObject instantiatedObject;
-    public Animator characterAnimator;
     public BlendShape blendShapeScript;
     public RotateObjects rotateObjectsScript;
+    private AvatarAnimation avatarAnimation;
+    private MasksController masksController;
 
+
+
+    private void Start()
+    {
+        avatarAnimation = FindObjectOfType<AvatarAnimation>();
+        blendShapeScript = FindObjectOfType<BlendShape>();
+
+        masksController = FindObjectOfType<MasksController>(); // Assign the MasksController here
+
+    }
 
     public void PrefabsInstantiate()
     {
         if (instantiatedObject != null)
         {
             Destroy(instantiatedObject);
-
             rotateObjectsScript.HandleInstantiatedOrDestroyedObject(instantiatedObject);
 
             List<GameObject> masks = new List<GameObject>(blendShapeScript.masksPrefab);
@@ -29,18 +37,18 @@ public class Spawner : MonoBehaviour
         else
         {
             instantiatedObject = Instantiate(prefabToInstantiate, Vector3.zero, Quaternion.identity);
-
             rotateObjectsScript.HandleInstantiatedOrDestroyedObject(instantiatedObject);
 
             blendShapeScript.avatarObject = instantiatedObject;
-
             SetInstantiatedObjectBlendShape();
 
             List<GameObject> masks = new List<GameObject>(blendShapeScript.masksPrefab);
             masks.Add(instantiatedObject);
             blendShapeScript.masksPrefab = masks.ToArray();
 
-            SetAnimationParameters();
+            ApplyAvatarAnimationState();
+
+            SetInstantiatedObjectAnimationState();
         }
     }
 
@@ -54,43 +62,66 @@ public class Spawner : MonoBehaviour
             if (avatarRenderer != null && instantiatedRenderer != null)
             {
                 float currentSliderValue = blendShapeScript.slider.value;
-
                 float blendShapeWeight = currentSliderValue * blendShapeScript.blendShapeWeightRange;
-
                 instantiatedRenderer.SetBlendShapeWeight(blendShapeScript.blendShapeIndex, blendShapeWeight);
             }
         }
     }
 
-    private void SetAnimationParameters()
+    public void ApplyAvatarAnimationState()
     {
-        if (characterAnimator != null && instantiatedObject != null)
+        if (avatarAnimation != null && instantiatedObject != null)
         {
-            bool isWalking = characterAnimator.GetBool("isWalking");
-            float normalizedTime = characterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+            Animator avatarAnimator = avatarAnimation.avatarAnimator;
+            Animator instantiatedAnimator = instantiatedObject.GetComponent<Animator>();
 
-            Animator maskAnimator = instantiatedObject.GetComponent<Animator>();
-
-            if (maskAnimator != null)
+            if (avatarAnimator != null && instantiatedAnimator != null)
             {
-                maskAnimator.SetBool("isWalking", isWalking);
-                maskAnimator.SetBool("isIdle", !isWalking);
-                maskAnimator.Play("Base Layer." + (isWalking ? "Walk" : "Idle"), 0, normalizedTime);
+                bool isAvatarXL = avatarAnimator.GetBool("isWalkingXL") ||
+                                  avatarAnimator.GetBool("isIdleXL") ||
+                                  avatarAnimator.GetBool("isAposeXL");
+
+                instantiatedAnimator.SetBool("isWalking", isAvatarXL ? avatarAnimator.GetBool("isWalkingXL") : avatarAnimator.GetBool("isWalking"));
+                instantiatedAnimator.SetBool("isIdle", isAvatarXL ? avatarAnimator.GetBool("isIdleXL") : avatarAnimator.GetBool("isIdle"));
+                instantiatedAnimator.SetBool("isApose", isAvatarXL ? avatarAnimator.GetBool("isAposeXL") : avatarAnimator.GetBool("isApose"));
             }
         }
     }
 
-    public void NotifyAnimationState(bool isWalking)
+    public void SetInstantiatedObjectAnimationState()
     {
-        if (instantiatedObject != null)
+        if (avatarAnimation != null && instantiatedObject != null)
         {
-            Animator maskAnimator = instantiatedObject.GetComponent<Animator>();
-            if (maskAnimator != null)
+            Animator avatarAnimator = avatarAnimation.avatarAnimator;
+            Animator instantiatedAnimator = instantiatedObject.GetComponent<Animator>();
+
+            if (avatarAnimator != null && instantiatedAnimator != null)
             {
-                maskAnimator.SetBool("isWalking", isWalking);
-                maskAnimator.SetBool("isIdle", !isWalking);
+                instantiatedAnimator.SetBool("isWalking", avatarAnimator.GetBool("isWalking"));
+                instantiatedAnimator.SetBool("isIdle", avatarAnimator.GetBool("isIdle"));
+                instantiatedAnimator.SetBool("isApose", avatarAnimator.GetBool("isApose"));
+                instantiatedAnimator.SetBool("isWalkingXL", avatarAnimator.GetBool("isWalkingXL"));
+                instantiatedAnimator.SetBool("isIdleXL", avatarAnimator.GetBool("isIdleXL"));
+                instantiatedAnimator.SetBool("isAposeXL", avatarAnimator.GetBool("isAposeXL"));
+
+                AnimatorStateInfo avatarStateInfo = avatarAnimator.GetCurrentAnimatorStateInfo(0);
+
+                instantiatedAnimator.Play(avatarStateInfo.fullPathHash, -1, avatarStateInfo.normalizedTime);
             }
         }
+    }
+
+    private void Update()
+    {
+        ApplyAvatarAnimationState();
+
+    }
+
+
+    public void ApplyButton()
+    {
+        ApplyAvatarAnimationState();
+        SetInstantiatedObjectAnimationState();
+        avatarAnimation.ApplyButtonClicked();
     }
 }
-

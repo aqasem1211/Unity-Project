@@ -6853,7 +6853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6091945661390234977}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -5.4794694e-17, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6898,7 +6898,6 @@ MonoBehaviour:
   avatarAnimator: {fileID: 0}
   additionalAnimators:
   - {fileID: 3373777032164124227}
-  spawner: {fileID: 0}
 --- !u!1 &6108274851258125132
 GameObject:
   m_ObjectHideFlags: 0
