@@ -172,6 +172,4 @@ public class AvatarAnimation : MonoBehaviour
         ForceSetAnimationParameters(isWalking: false, isIdle: isIdle, isApose: true, isNormal: true, isXL: true);
     }
 
-
-
 }
