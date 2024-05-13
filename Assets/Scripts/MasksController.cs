@@ -367,7 +367,5 @@ public class MasksController : MonoBehaviour
         {
             UpdateBonePositions(boneData);
         }
-
     }
-
 }
