@@ -30,8 +30,25 @@ public class AvatarCreator : MonoBehaviour
         request.Image = userImageURL;
 
         string jsonRequestBody = JsonConvert.SerializeObject(request);
-
+        ResetAvatar();
         CallCreateAvatarAPI(jsonRequestBody);
+    }
+
+    private void ResetAvatar()
+    {
+        var faceMaterial = avatarSkinnedMeshRenderer.sharedMaterials.FirstOrDefault(mat => mat.name == "Face");
+        faceMaterial.mainTexture = null;
+
+        if (avatarSkinnedMeshRenderer == null)
+        {
+            Debug.LogError("SkinnedMeshRenderer is not assigned!");
+            return;
+        }
+
+        for (int i = 0; i < avatarSkinnedMeshRenderer.sharedMesh.blendShapeCount; i++)
+        {
+            avatarSkinnedMeshRenderer.SetBlendShapeWeight(i, 0f);
+        }
     }
 
     private void CallCreateAvatarAPI(string jsonRequestBody)
