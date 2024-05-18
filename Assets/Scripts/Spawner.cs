@@ -1,27 +1,20 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject prefabToInstantiate;
     private GameObject instantiatedObject;
+    public Animator characterAnimator;
     public BlendShape blendShapeScript;
     public RotateObjects rotateObjectsScript;
-    private AvatarAnimation avatarAnimation;
-
-
-    private void Start()
-    {
-        avatarAnimation = FindObjectOfType<AvatarAnimation>();
-        blendShapeScript = FindObjectOfType<BlendShape>();
-
-    }
 
     public void PrefabsInstantiate()
     {
         if (instantiatedObject != null)
         {
             Destroy(instantiatedObject);
+
             rotateObjectsScript.HandleInstantiatedOrDestroyedObject(instantiatedObject);
 
             List<GameObject> masks = new List<GameObject>(blendShapeScript.masksPrefab);
@@ -33,18 +26,18 @@ public class Spawner : MonoBehaviour
         else
         {
             instantiatedObject = Instantiate(prefabToInstantiate, Vector3.zero, Quaternion.identity);
+
             rotateObjectsScript.HandleInstantiatedOrDestroyedObject(instantiatedObject);
 
             blendShapeScript.avatarObject = instantiatedObject;
+
             SetInstantiatedObjectBlendShape();
 
             List<GameObject> masks = new List<GameObject>(blendShapeScript.masksPrefab);
             masks.Add(instantiatedObject);
             blendShapeScript.masksPrefab = masks.ToArray();
 
-            ApplyAvatarAnimationState();
-
-            SetInstantiatedObjectAnimationState();
+            SetAnimationParameters();
         }
     }
 
@@ -58,99 +51,79 @@ public class Spawner : MonoBehaviour
             if (avatarRenderer != null && instantiatedRenderer != null)
             {
                 float currentSliderValue = blendShapeScript.slider.value;
+
                 float blendShapeWeight = currentSliderValue * blendShapeScript.blendShapeWeightRange;
+
                 instantiatedRenderer.SetBlendShapeWeight(blendShapeScript.blendShapeIndex, blendShapeWeight);
             }
         }
     }
 
-    //public void ApplyAvatarAnimationState()
-    //{
-    //    if (avatarAnimation != null && instantiatedObject != null)
-    //    {
-    //        Animator avatarAnimator = avatarAnimation.avatarAnimator;
-    //        Animator instantiatedAnimator = instantiatedObject.GetComponent<Animator>();
-
-    //        if (avatarAnimator != null && instantiatedAnimator != null)
-    //        {
-    //            bool isAvatarXL = avatarAnimator.GetBool("isWalkingXL") ||
-    //                              avatarAnimator.GetBool("isIdleXL") ||
-    //                              avatarAnimator.GetBool("isAposeXL");
-
-    //            instantiatedAnimator.SetBool("isWalking", isAvatarXL ? avatarAnimator.GetBool("isWalkingXL") : avatarAnimator.GetBool("isWalking"));
-    //            instantiatedAnimator.SetBool("isIdle", isAvatarXL ? avatarAnimator.GetBool("isIdleXL") : avatarAnimator.GetBool("isIdle"));
-    //            instantiatedAnimator.SetBool("isApose", isAvatarXL ? avatarAnimator.GetBool("isAposeXL") : avatarAnimator.GetBool("isApose"));
-    //        }
-    //    }
-    //}
-
-    public void ApplyAvatarAnimationState()
+    private void SetAnimationParameters()
     {
-        if (avatarAnimation != null && instantiatedObject != null)
+        if (characterAnimator == null || instantiatedObject == null)
+            return;
+
+        bool isWalking = characterAnimator.GetBool("isWalking");
+        bool isWalking2 = characterAnimator.GetBool("isWalking2");
+        bool isIdle = characterAnimator.GetBool("isIdle");
+        bool isIdle2 = characterAnimator.GetBool("isIdle2");
+        bool isApose = characterAnimator.GetBool("isApose");
+        bool isHighHeels = characterAnimator.GetBool("isHighHeels");
+        float normalizedTime = characterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+
+        Animator maskAnimator = instantiatedObject.GetComponent<Animator>();
+
+        if (maskAnimator != null)
         {
-            Animator avatarAnimator = avatarAnimation.avatarAnimator;
-            Animator instantiatedAnimator = instantiatedObject.GetComponent<Animator>();
-
-            if (avatarAnimator != null && instantiatedAnimator != null)
-            {
-                bool isAvatarXL = avatarAnimator.GetBool("isWalkingXL") || avatarAnimator.GetBool("isIdleXL") || avatarAnimator.GetBool("isAposeXL");
-
-                instantiatedAnimator.SetBool("isWalking", avatarAnimator.GetBool("isWalking"));
-                instantiatedAnimator.SetBool("isIdle", avatarAnimator.GetBool("isIdle"));
-                instantiatedAnimator.SetBool("isApose", avatarAnimator.GetBool("isApose"));
-
-                if (isAvatarXL)
-                {
-                    instantiatedAnimator.SetBool("isWalkingXL", avatarAnimator.GetBool("isWalkingXL"));
-                    instantiatedAnimator.SetBool("isIdleXL", avatarAnimator.GetBool("isIdleXL"));
-                    instantiatedAnimator.SetBool("isAposeXL", avatarAnimator.GetBool("isAposeXL"));
-                }
-                else
-                {
-                    instantiatedAnimator.SetBool("isWalkingXL", false);
-                    instantiatedAnimator.SetBool("isIdleXL", false);
-                    instantiatedAnimator.SetBool("isAposeXL", false);
-                }
-            }
+            UpdateAnimatorParameters(maskAnimator, isWalking, isWalking2, isIdle, isIdle2, isApose, isHighHeels, normalizedTime);
         }
     }
 
-
-    public void SetInstantiatedObjectAnimationState()
+    private void UpdateAnimatorParameters(Animator maskAnimator, bool isWalking, bool isWalking2, bool isIdle, bool isIdle2, bool isApose, bool isHighHeels, float normalizedTime = 0f)
     {
-        if (avatarAnimation != null && instantiatedObject != null)
+        maskAnimator.SetBool("isWalking", isWalking);
+        maskAnimator.SetBool("isWalking2", isWalking2);
+        maskAnimator.SetBool("isIdle", isIdle);
+        maskAnimator.SetBool("isIdle2", isIdle2);
+        maskAnimator.SetBool("isApose", isApose);
+        maskAnimator.SetBool("isHighHeels", isHighHeels);
+
+        string animationName = GetAnimationName(isWalking, isWalking2, isIdle, isIdle2, isApose, isHighHeels);
+
+        AnimatorStateInfo avatarStateInfo = maskAnimator.GetCurrentAnimatorStateInfo(0);
+
+        maskAnimator.Play(avatarStateInfo.fullPathHash, -1, avatarStateInfo.normalizedTime);
+    }
+
+    private string GetAnimationName(bool isWalking, bool isWalking2, bool isIdle, bool isIdle2, bool isApose, bool isHighHeels)
+    {
+        if (isWalking)
+            return "Walk";
+        else if (isWalking2)
+            return "Walk2";
+        else if (isIdle)
+            return "Idle";
+        else if (isIdle2)
+            return "Idle2";
+        else if (isApose)
+            return "Apose";
+        else if (isHighHeels)
+            return "HighHeels";
+        else
+            return "Apose";
+    }
+
+    public void NotifyAnimationState(bool isWalking, bool isWalking2, bool isIdle, bool isIdle2, bool isApose, bool isHighHeels)
+    {
+        if (instantiatedObject == null)
+            return;
+
+        Animator maskAnimator = instantiatedObject.GetComponent<Animator>();
+
+        if (maskAnimator != null)
         {
-            Animator avatarAnimator = avatarAnimation.avatarAnimator;
-            Animator instantiatedAnimator = instantiatedObject.GetComponent<Animator>();
-
-            if (avatarAnimator != null && instantiatedAnimator != null)
-            {
-                instantiatedAnimator.SetBool("isWalking", avatarAnimator.GetBool("isWalking"));
-                instantiatedAnimator.SetBool("isIdle", avatarAnimator.GetBool("isIdle"));
-                instantiatedAnimator.SetBool("isApose", avatarAnimator.GetBool("isApose"));
-                instantiatedAnimator.SetBool("isWalkingXL", avatarAnimator.GetBool("isWalkingXL"));
-                instantiatedAnimator.SetBool("isIdleXL", avatarAnimator.GetBool("isIdleXL"));
-                instantiatedAnimator.SetBool("isAposeXL", avatarAnimator.GetBool("isAposeXL"));
-
-                AnimatorStateInfo avatarStateInfo = avatarAnimator.GetCurrentAnimatorStateInfo(0);
-
-                instantiatedAnimator.Play(avatarStateInfo.fullPathHash, -1, avatarStateInfo.normalizedTime);
-            }
+            UpdateAnimatorParameters(maskAnimator, isWalking, isWalking2, isIdle, isIdle2, isApose, isHighHeels);
         }
-    }
-
-
-    private void Update()
-    {
-        ApplyAvatarAnimationState();
-
-    }
-
-
-    public void ApplyButton()
-    {
-        ApplyAvatarAnimationState();
-        SetInstantiatedObjectAnimationState();
-        avatarAnimation.ApplyButtonClicked();
     }
 }

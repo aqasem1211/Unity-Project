@@ -36,6 +36,8 @@ public class MasksController : MonoBehaviour
         [Header("isEnabled?")]
         public bool scaleEnabled;
         public bool positionEnabled;
+
+
     }
 
     [SerializeField] private BoneData[] _boneData;
@@ -95,7 +97,6 @@ public class MasksController : MonoBehaviour
         if (boneData.transformInputZ != null)
             boneData.transformInputZ.onValueChanged.AddListener((value) => UpdateVector3FromInput(value, boneData.largeMaskBonesPosition, 2));
     }
-
 
     private void UpdateVector3FromInput(string value, Vector3 vector, int index)
     {
@@ -262,7 +263,7 @@ public class MasksController : MonoBehaviour
             (isMediumSize && boneData.mediumMaskBonesScale != Vector3.zero) ||
             (!isSmallSize && !isMediumSize && boneData.largeMaskBonesScale != Vector3.zero))
         {
-            return boneData.scaleEnabled;
+            return boneData.scaleEnabled/* && boneData.positionEnabled*/;
         }
 
         return false;
