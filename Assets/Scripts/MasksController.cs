@@ -38,7 +38,11 @@ public class MasksController : MonoBehaviour
         public bool positionEnabled;
 
 
+        public TMP_InputField sliderValue;
+
     }
+
+
 
     [SerializeField] private BoneData[] _boneData;
     private Dictionary<string, List<Transform>> _groupedBones = new Dictionary<string, List<Transform>>();
@@ -73,6 +77,9 @@ public class MasksController : MonoBehaviour
             boneData.transformInputX.text = boneData.smallMaskBonesPosition.x.ToString();
             boneData.transformInputY.text = boneData.smallMaskBonesPosition.y.ToString();
             boneData.transformInputZ.text = boneData.smallMaskBonesPosition.z.ToString();
+
+            sizeSlider.onValueChanged.AddListener(value => boneData.sliderValue.text = value.ToString("F2"));
+
         }
     }
 
@@ -263,7 +270,7 @@ public class MasksController : MonoBehaviour
             (isMediumSize && boneData.mediumMaskBonesScale != Vector3.zero) ||
             (!isSmallSize && !isMediumSize && boneData.largeMaskBonesScale != Vector3.zero))
         {
-            return boneData.scaleEnabled/* && boneData.positionEnabled*/;
+            return boneData.scaleEnabled;
         }
 
         return false;
